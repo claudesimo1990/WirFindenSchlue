@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/greenforest-package
 /storage/*.key
 /vendor
 .env
