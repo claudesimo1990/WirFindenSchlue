@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Ich finde meine schlü
                 </div>
 
                 <div class="links">
