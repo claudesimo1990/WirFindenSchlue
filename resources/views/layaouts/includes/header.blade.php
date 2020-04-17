@@ -12,7 +12,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <div class="slider-item">
-                        <img src="/images/home01/slider1.jpg" alt="bg-slider-1">
+                        <img src="{{asset('/images/home01/slider1.jpg')}}" alt="bg-slider-1">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
