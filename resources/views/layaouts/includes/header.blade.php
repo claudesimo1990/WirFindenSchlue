@@ -12,7 +12,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <div class="slider-item">
-                        <img src="/images/home01/slider-img-2.jpg" alt="bg-slider-1">
+                        <img src="/images/home01/slider1.jpg" alt="bg-slider-1">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
@@ -35,7 +35,7 @@
 
                 <div class="item">
                     <div class="slider-item">
-                        <img src="/images/home01/slider-img-2.jpg" alt="bg-slider-2">
+                        <img src="/images/home01/slider1.jpg" alt="bg-slider-2">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
@@ -43,8 +43,8 @@
                                     <h2>auf Wir Finden deine SchlÜ</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi cupiditate doloremque doloribus eius. </p>
                                     <div class="slider-btn">
-                                        <a href="#" class="btn btn-default">Anmelden</a>
-                                        <a href="donate.html" class="btn btn-default">Bestellen</a>
+                                        <a href="{{asset('anmeldung')}}" class="btn btn-default">Anmelden</a>
+                                        <a href="{{asset('bestellung')}}" class="btn btn-default">Bestellen</a>
                                     </div>
                                     <!-- .slider-btn -->
                                 </div>
@@ -57,16 +57,16 @@
                 <!-- .items -->
                 <div class="item">
                     <div class="slider-item">
-                        <img src="/images/home01/slider-img-2.jpg" alt="bg-slider-3">
+                        <img src="/images/home01/slider1.jpg" alt="bg-slider-3">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
-                                    <h3>Willkommen</h3>
-                                    <h2>auf Wir Finden deine SchlÜ</h2>
+                                    <h3 class="">Willkommen</h3>
+                                    <h2>auf Wir Finden deine Schlü</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi cupiditate doloremque doloribus eius. </p>
                                     <div class="slider-btn">
-                                        <a href="#" class="btn btn-default">Anmelden</a>
-                                        <a href="donate.html" class="btn btn-default">Bestellen</a>
+                                        <a href="{{asset('anmeldung')}}" class="btn btn-default">Anmelden</a>
+                                        <a href="{{asset('bestellung')}}" class="btn btn-default">Bestellen</a>
                                     </div>
                                     <!-- .slider-btn -->
                                 </div>

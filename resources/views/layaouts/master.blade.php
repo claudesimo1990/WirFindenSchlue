@@ -28,9 +28,12 @@
 <body class="boxed">
 
 <div class="box-layout">
+
+
    @include('layaouts.includes.nav')
     <!-- Start Working  Section -->
-@include('layaouts.includes.header')
+
+    @yield('header')
 
    @yield('content')
 

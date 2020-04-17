@@ -1,17 +1,61 @@
 @extends('layaouts.master')
 
+@section('header')
+    @include('layaouts.includes.header')
+@stop
 
 @section('content')
-    <section class="bg-working-section mb-20">
+    <section class="bg-homebox-video">
+        <iframe
+            src="https://player.vimeo.com/video/407899200?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
+            frameborder="0" class="w-full" allow="autoplay; encrypted-media" width="" height="800"></iframe>
+    </section>
+    <section class="bg-volunteers-section mb-5">
         <div class="container">
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-5">Schon einmal den Schlüssel verloren ? </h3>
+                        <h3 class="mb-5">Über uns</h3>
+                    </div>
+                    <div class="flex md:flex-row-reverse flex-wrap">
+                        <div class="w-full md:w-2/4  p-4 text-center">
+                            <img src="{{asset('/images/home01/slider1.jpg')}}" alt="">
+                        </div>
+                        <div class="w-full md:w-2/4  p-4 text-center text-gray-700">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto doloribus
+                                exercitationem fugit harum inventore molestiae quisquam quod, soluta? Amet dolores eaque
+                                exercitationem facere magnam magni minus non possimus quia voluptatum!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto doloribus
+                                exercitationem fugit harum inventore molestiae quisquam quod, soluta? Amet dolores eaque
+                                exercitationem facere magnam magni minus non possimus quia voluptatum!
+                                exercitationem facere magnam magni minus non possimus quia voluptatum!
+                                exercitationem facere magnam magni minus non possimus quia voluptatum!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- .working-section -->
+        </div>
+        <!-- .row -->
+        </div>
+        <!-- .container -->
+    </section>
+    <section class="bg-working-section mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="working-section">
+                    <div class="section-header">
+                        <h3 class="mb-20">Schon einmal den Schlüssel verloren ? </h3>
                         <div class="working-content">
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span> </p>
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span> </p>
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span> </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
                             <a href="#">read more<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -23,16 +67,19 @@
         </div>
         <!-- .container -->
     </section>
-    <section class="bg-volunteers-section mb-20">
+    <section class="bg-volunteers-section mb-5">
         <div class="container">
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-5">Der SCHLÜ</h3>
+                        <h3 class="mb-20">Schon einmal den Schlüssel verloren ? </h3>
                         <div class="working-content">
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span> </p>
-                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span> </p>
-                            <a href="#">read more<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
                         </div>
                     </div>
 
@@ -43,22 +90,25 @@
         </div>
         <!-- .container -->
     </section>
-
-    <section class="bg-homebox-video mb-20">
-        <div class="compaian-video-overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="compaian-video">
-                        <a href="https://www.youtube.com/embed/YTR21os8gTA" data-rel="lightcase:myCollection"><img
-                                src=" /images/home02/video-icon.png" alt="video-icon"/></a>
-                        <h3>hier kommt unser video</h3>
+    <section class="bg-homebox-video">
+        <div class="container">
+            <div class="row">
+                <div class="working-section">
+                    <div class="section-header">
+                        <h3 class="mb-20">Der SCHLÜ</h3>
+                        <div class="working-content">
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
+                            </p>
+                        </div>
                     </div>
-                    <!-- .compaian-video -->
+
                 </div>
-                <!-- .row -->
+                <!-- .working-section -->
             </div>
-            <!-- .container -->
+            <!-- .row -->
         </div>
-        <!-- .compaian-video-overlay -->
+        <!-- .container -->
     </section>
 @stop
