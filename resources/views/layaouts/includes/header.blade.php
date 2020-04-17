@@ -35,7 +35,7 @@
 
                 <div class="item">
                     <div class="slider-item">
-                        <img src="/images/home01/slider1.jpg" alt="bg-slider-2">
+                        <img src="{{asset('/images/home01/slider1.jpg')}}" alt="bg-slider-2">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
@@ -57,7 +57,7 @@
                 <!-- .items -->
                 <div class="item">
                     <div class="slider-item">
-                        <img src="/images/home01/slider1.jpg" alt="bg-slider-3">
+                        <img src="{{asset('/images/home01/slider1.jpg')}}" alt="bg-slider-3">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
