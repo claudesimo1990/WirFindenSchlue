@@ -19,7 +19,7 @@
                     </div>
                     <div class="flex md:flex-row-reverse flex-wrap">
                         <div class="w-full md:w-2/4  p-4 text-center">
-                            <img src="{{asset('/images/home01/slider1.jpg')}}" alt="">
+                            <img src="{{asset('/images/home01/Slider1.jpg')}}" alt="">
                         </div>
                         <div class="w-full md:w-2/4  p-4 text-center text-gray-700">
                             <p>
