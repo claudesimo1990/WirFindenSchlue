@@ -7,7 +7,7 @@
 @section('content')
     <section class="bg-homebox-video">
         <iframe
-            src="https://player.vimeo.com/video/407899200?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
+            src="https://player.vimeo.com/video/407899200?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;autopause=0"
             frameborder="0" class="w-full" allow="autoplay; encrypted-media" width="" height="800"></iframe>
     </section>
     <section class="bg-volunteers-section mb-5">

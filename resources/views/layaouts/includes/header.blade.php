@@ -35,13 +35,12 @@
 
                 <div class="item">
                     <div class="slider-item">
-                        <img src="{{asset('images/home01/Slider1.jpg')}}" alt="bg-slider-2">
+                        <img src="{{asset('images/home01/Slider2.jpg')}}" alt="bg-slider-2">
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
-                                    <h3>Willkommen</h3>
-                                    <h2>auf Wir Finden deine SchlÜ</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi cupiditate doloremque doloribus eius. </p>
+                                    <h3>Sei ein Teil des Netzwerks von IFM</h3>
+                                    <h3>Auch in deiner Lieblingsfarbe erhältlich.</h3>
                                     <div class="slider-btn">
                                         <a href="{{asset('anmeldung')}}" class="btn btn-default">Anmelden</a>
                                         <a href="{{asset('bestellung')}}" class="btn btn-default">Bestellen</a>

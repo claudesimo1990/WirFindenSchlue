@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Wir finden deine SchlÜ</title>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <!-- Plugin css -->
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+          media="all"/>
     <link rel="stylesheet" type="text/css" href="/fonts/flaticon.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/animate.css" media="all" />
@@ -27,7 +29,7 @@
 
 <body class="boxed">
 
-<div class="box-layout">
+<div class="box-layout" id="app">
 
 
    @include('layaouts.includes.nav')
@@ -53,19 +55,6 @@
 
 </div>
 
-<!-- Start Pre-Loader
-<div id="loading">
-    <div id="loading-center">
-        <div id="loading-center-absolute">
-            <div class="object" id="object_one"></div>
-            <div class="object" id="object_two"></div>
-            <div class="object" id="object_three"></div>
-            <div class="object" id="object_four"></div>
-        </div>
-    </div>
-</div>
-End Pre-Loader -->
-
 
 
 
@@ -84,6 +73,7 @@ End Pre-Loader -->
 <script type="text/javascript" src="/js/custom.map.js"></script>
 
 <script type="text/javascript" src="/js/custom.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 
 
 </body>

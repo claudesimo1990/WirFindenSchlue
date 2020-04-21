@@ -14,3 +14,6 @@ Route::post('/anmeldung','AppController@anmeldungStore');
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/home','AdminController@home');
+});

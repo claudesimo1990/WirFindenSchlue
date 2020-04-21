@@ -2,9 +2,9 @@
 
  	"use strict";
 	$(document).ready(function() {
-	 
+
 		//jQuery for page scrolling feature - requires jQuery Easing plugin
-	
+
 			$('a.page-scroll').on('click', function(event) {
 				var $anchor = $(this);
 				$('html, body').stop().animate({
@@ -12,35 +12,33 @@
 				}, 1500, 'easeInOutExpo');
 				event.preventDefault();
 			});
-	
 
-		
 		//LightCase
-		
-			$('a[data-rel^=lightcase]').lightcase();
-		
 
-		//Js code for search box 
-		
+			$('a[data-rel^=lightcase]').lightcase();
+
+
+		//Js code for search box
+
 			$(".first_click").on("click", function(){
-				$(".menu-right-option").addClass("search_box");	 
+				$(".menu-right-option").addClass("search_box");
 			});
 			$(".second_click").on("click", function(){
-				$(".menu-right-option").removeClass("search_box"); 
-			});	
-			
-		
-		//countdown 
+				$(".menu-right-option").removeClass("search_box");
+			});
+
+
+		//countdown
         $('.counter').counterUp({
             delay: 10,
             time: 1000
         });
-		
-		
-			
-		
+
+
+
+
 		//Sponsors swiper
-		
+
 		var swiper = new Swiper('.sponsors-container', {
 			pagination: '.swiper-pagination',
 			slidesPerView: 4,
@@ -68,10 +66,10 @@
 				}
 			}
 		});
-		
-		
+
+
 		//testimonial swiper
-		
+
 		var swiper = new Swiper('.testimonial-container', {
 			pagination: '.swiper-pagination',
 			slidesPerView: 3,
@@ -99,10 +97,10 @@
 				}
 			}
 		});
-		
-		
+
+
 		//people say container swiper
-		
+
 		var swiper = new Swiper('.people-say-container', {
 			pagination: '.swiper-pagination',
 			slidesPerView: 1,
@@ -130,62 +128,62 @@
 				}
 			}
 		});
-		
+
 		//Pre-Loader
-	
-			
+
+
 			$("#loading").delay(2000).fadeOut(500);
 			$("#loading-center").on("click",function() {
 			$("#loading").fadeOut(500);
 			});
-		
-		
-		
-		//Scroll Top Top 
-		
+
+
+
+		//Scroll Top Top
+
 		var link,
 		toggleScrollToTopLink = function(){
-			
+
 			if($("body").scrollTop() > 0 || $("html").scrollTop() > 0){
 				link.fadeIn(400);
 			}else{
 				link.fadeOut(400);
 			}
-			
+
 		};
-		
+
 			link = $(".scroll-img");
-			
+
 			$(window).scroll(toggleScrollToTopLink);
-			
+
 			toggleScrollToTopLink();
-			
+
 			link.on("click", function(){
-				
+
 				$("body").animate({scrollTop: 0});
 				$("html").animate({scrollTop: 0});
-				
+
 			});
-	
-		
+
+
 		//Menu Fixed Top
-		
+
 			var fixed_top = $(".menu-scroll");
 
 			$(window).on('scroll', function() {
-				
-				if( $(this).scrollTop() > 100 ){	
+
+				if( $(this).scrollTop() > 100 ){
 					fixed_top.addClass("menu-fixed animated fadeInDown");
 				}
 				else{
 					fixed_top.removeClass("menu-fixed animated fadeInDown");
 				}
-				
+
 			});
-			
-	
+
+
 			//Pricing Slider
-		
+
 			$('.nstSlider').nstSlider({
 				"left_grip_selector": ".leftGrip",
 				"right_grip_selector": ".rightGrip",
@@ -196,12 +194,12 @@
 				}
 			});
 
-			
-		
-		
-		
+
+
+
+
 	//Flex Slider
-			
+
 		$(window).load(function() {
 		  // The slider being synced must be initialized first
 		  $('#carousel').flexslider({
@@ -213,7 +211,7 @@
 			itemMargin: 5,
 			asNavFor: '#slider'
 		  });
-		 
+
 		  $('#slider').flexslider({
 			animation: "slide",
 			controlNav: false,
@@ -222,11 +220,11 @@
 			sync: "#carousel"
 		  });
 		});
-		
-		
+
+
 
 	//nst Slider
-	
+
 		$('.nstSlider').nstSlider({
 			"left_grip_selector": ".leftGrip",
 			"right_grip_selector": ".rightGrip",
@@ -236,17 +234,44 @@
 				$(this).parent().find('.rightLabel').text(rightValue);
 			}
 		});
-        
 
-		
-	});	
+
+
+	});
 
 })(jQuery);
 
+ $(document).ready(function(){
+     $('.login-info-box').fadeOut();
+     $('.login-show').addClass('show-log-panel');
+ });
+
+
+ $('.login-reg-panel input[type="radio"]').on('change', function() {
+     if($('#log-login-show').is(':checked')) {
+         $('.register-info-box').fadeOut();
+         $('.login-info-box').fadeIn();
+
+         $('.white-panel').addClass('right-log');
+         $('.register-show').addClass('show-log-panel');
+         $('.login-show').removeClass('show-log-panel');
+
+     }
+     else if($('#log-reg-show').is(':checked')) {
+         $('.register-info-box').fadeIn();
+         $('.login-info-box').fadeOut();
+
+         $('.white-panel').removeClass('right-log');
+
+         $('.login-show').addClass('show-log-panel');
+         $('.register-show').removeClass('show-log-panel');
+     }
+ });
 
 
 
 
-	
+
+
 
 

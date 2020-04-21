@@ -4882,13 +4882,6 @@ div#filters {
 	text-transform: none;
 	padding: 12px 0;
 }
-.bg-homebox-video {
-    background: url(../../assets/images/home01/bg-home-box-video-img.jpg) no-repeat fixed;
-    background-size: cover;
-    background-position: 48% 100%;
-}
-
-
 /*============================================  Start Home One Page ================================*/
 
 .bg-contact-home{
@@ -5888,6 +5881,306 @@ div#filters {
 }
 
 
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+a{
+    text-decoration:none;
+    color:#444444;
+}
+.login-reg-panel{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align:center;
+    width:70%;
+    right:0;left:0;
+    margin:auto;
+    height:400px;
+    background-color: #2c7715;
+}
+.white-panel{
+    background-color: rgba(255,255, 255, 1);
+    height:500px;
+    position:absolute;
+    top:-50px;
+    width:50%;
+    right:calc(50% - 50px);
+    transition:.3s ease-in-out;
+    z-index:0;
+    box-shadow: 0 0 15px 9px #00000096;
+}
+.login-reg-panel input[type="radio"]{
+    position:relative;
+    display:none;
+}
+.login-reg-panel{
+    color:#B8B8B8;
+}
+.login-reg-panel #label-login,
+.login-reg-panel #label-register{
+    border:1px solid #9E9E9E;
+    padding:5px 5px;
+    width:150px;
+    display:block;
+    text-align:center;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight: 600;
+    font-size: 18px;
+}
+.login-info-box{
+    width:30%;
+    padding:0 50px;
+    top:20%;
+    left:0;
+    position:absolute;
+    text-align:left;
+}
+.register-info-box{
+    width:30%;
+    padding:0 50px;
+    top:20%;
+    right:0;
+    position:absolute;
+    text-align:left;
 
+}
+.right-log{right:50px !important;}
+
+.login-show,
+.register-show{
+    z-index: 1;
+    display:none;
+    opacity:0;
+    transition:0.3s ease-in-out;
+    color:#242424;
+    text-align:left;
+    padding:50px;
+}
+.show-log-panel{
+    display:block;
+    opacity:0.9;
+}
+.login-show input[type="text"], .login-show input[type="password"]{
+    width: 100%;
+    display: block;
+    margin:20px 0;
+    padding: 15px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+}
+.login-show input[type="button"] {
+    max-width: 150px;
+    width: 100%;
+    background: #444444;
+    color: #f9f9f9;
+    border: none;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    float:right;
+    cursor:pointer;
+}
+.login-show a{
+    display:inline-block;
+    padding:10px 0;
+}
+
+.register-show input[type="text"], .register-show input[type="password"]{
+    width: 100%;
+    display: block;
+    margin:20px 0;
+    padding: 15px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+}
+.register-show input[type="button"] {
+    max-width: 150px;
+    width: 100%;
+    background: #444444;
+    color: #f9f9f9;
+    border: none;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    float:right;
+    cursor:pointer;
+}
+.credit {
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    color: #3B3B25;
+    margin: 0;
+    padding: 0;
+    font-family: Arial,sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 99;
+}
+a{
+    text-decoration:none;
+    color:#2c7715;
+}
+.header-style-2 .navbar-brand, .header-style-3 .navbar-brand {
+    display: block;
+    padding: 0px 60px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+.pricing .btn {
+    width: 217px !important;
+}
+.pricing .card {
+    margin-bottom: 27px !important;
+}
+
+.h-contact {
+    float: right;
+}
+
+.collection-content {
+    height: 220px;
+    justify-content: center;
+}
+
+.btn-angebot {
+    position: absolute;
+    padding-top: 10px;
+    bottom: 40px;
+    right: 100px;
+}
+
+.text {
+    margin-top: 10px;
+}
+
+.tarifrechener-input {
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+.tarifrechener-input input {
+    width: 80px;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+}
+
+.tarifrechener-btn {
+    padding-bottom: 35px;
+}
+
+.tarifrechener-btn :hover {
+    background-color: green !important;
+}
+
+.panel-heading {
+    width: 100%;
+    height: 60px;
+    background-color: #1a202c !important;
+}
+
+.pr-2 {
+    padding-right: 2px !important;
+}
+
+.logo {
+    color: #4cae4c !important;
+}
+
+.stepwizard-step p {
+    margin-top: 0px;
+    color: #666;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    /*opacity: 1 !important;
+    filter: alpha(opacity=100) !important;*/
+}
+
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity: 1 !important;
+    color: #bbb;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.abstand {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-bg {
+    background-color: #f7f7f7;
+}
+
+.kwh {
+    color: green;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.checkmark_stem {
+    position: absolute;
+    padding-top: 2px;
+    width: 5px;
+    height: 12px;
+    background-color: green;
+    left: 15px;
+    top: 6px;
+}
+
+.checkmark_kick {
+    position: absolute;
+    width: 9px;
+    height: 6px;
+    background-color: green;
+    left: 6px;
+    top: 12px;
+}
 
 
