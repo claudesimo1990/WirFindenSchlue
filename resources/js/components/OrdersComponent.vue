@@ -1,43 +1,101 @@
 <template>
     <div class="container mt-4">
-        <table>
-            <tr>
-                <th class="text-center">Id</th>
-                <th class="text-center">Name</th>
-                <th class="text-center">Email</th>
-                <th class="text-center">Verify?</th>
-                <th class="text-center">UIID</th>
-                <th class="text-center">Actions</th>
-            </tr>
-            <tr v-for="i in 30">
-                <td class="text-center">{{i}}</td>
-                <td class="text-center">Maria Anders</td>
-                <td class="text-center">test@test.com</td>
-                <td class="text-center">ja</td>
-                <td class="text-center">123445675</td>
-                <td class="action">
-                    <span>
-                        <input class="btn btn-info" type="button" value="Update">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">N°</th>
+                    <th class="text-center">anrede</th>
+                    <th class="text-center">vorname</th>
+                    <th class="text-center">nachname</th>
+                    <th class="text-center">email</th>
+                    <th class="text-center">telefon</th>
+                    <th class="text-center">StraßeHausnummer</th>
+                    <th class="text-center">Ort</th>
+                    <th class="text-center">PLZ</th>
+                    <th class="text-center">farbe</th>
+                    <th class="text-center">vorname_2</th>
+                    <th class="text-center">nachname_2</th>
+                    <th class="text-center">phone_2</th>
+                    <th class="text-center">anrede_2</th>
+                    <th class="text-center">email_2</th>
+                    <th class="text-center">created_at</th>
+                    <th class="text-center">actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(i,index) in Orders">
+                    <td class="text-center">{{i.id}}</td>
+                    <td class="text-center">{{i.anrede}}</td>
+                    <td class="text-center">{{i.vorname}}</td>
+                    <td class="text-center">{{i.nachname}}</td>
+                    <td class="text-center">{{i.email}}</td>
+                    <td class="text-center">{{i.phone}}</td>
+                    <td class="text-center">{{i.StraßeHausnummer}}</td>
+                    <td class="text-center">{{i.Ort}}</td>
+                    <td class="text-center">{{i.PLZ}}</td>
+                    <td class="text-center">{{i.farbe}}</td>
+                    <td class="text-center">{{i.vorname_2}}</td>
+                    <td class="text-center">{{i.nachname_2}}</td>
+                    <td class="text-center">{{i.phone_2}}</td>
+                    <td class="text-center">{{i.anrede_2}}</td>
+                    <td class="text-center">{{i.email_2}}</td>
+                    <td class="text-center">{{i.created_at}}</td>
+                    <td class="action">
+                        <span><input @click="remove(i.id,index)" class="btn btn-danger" type="button" value="löschen">
                     </span>
-                    <span>
-                        <input class="btn btn-danger" type="button" value="löschen">
-                    </span>
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </template>
 
 <script>
+    export default {
+        props: ['datauids'],
+        data: function () {
+            return {
+                Orders: [],
 
-</script>
-
-<style scoped>
-    .action{
-        display: flex;
-        justify-content:space-around;
+            }
+        }, methods: {
+            remove: function (id, index) {
+                if (confirm('willst du wirklich löschen')) {
+                    axios.delete('/admin/bestellungen/' + id, {params: {id: id}})
+                        .then(res => {
+                            if (res.status == 200) {
+                                this.Orders.splice(index, 1);
+                            }
+                        }).catch(err => {
+                        console.log('bitte laden sie die Seite neu')
+                    });
+                }
+            }
+        },
+        mounted() {
+            axios.get('/allOrders')
+                .then(res => {
+                    this.Orders = res.data;
+                }).catch(err => {
+                console.log(err)
+            });
+        }
     }
+</script>
+<style scoped>
+    .form-new {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .action {
+        display: flex;
+        justify-content: space-around;
+    }
+
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;

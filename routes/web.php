@@ -7,6 +7,7 @@ Route::get('/kontakt','AppController@kontakt')->name('kontakte');
 
 Route::get('/bestellung','AppController@bestellung')->name('bestellung');
 Route::post('/bestellung','AppController@bestellungStore');
+Route::get('/allOrders','AppController@fetchAllData');
 
 Route::get('/anmeldung','AppController@anmeldung')->name('anmeldung');
 Route::post('/anmeldung','AppController@anmeldungStore');
@@ -16,8 +17,9 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/home','AdminController@home')->name('home');
-    Route::get('/admin/users','AdminController@users')->name('admin.users');
-    Route::get('/admin/bestellungen','OrderController@index')->name('orders');
-    Route::get('/admin/uuids','UidTableController@home')->name('uids');
+    Route::get('/admin/users','AdminController@viewuser');
+    Route::get('/admin/allUsers','AdminController@allusers');
+    Route::post('/admin/users/store','AdminController@store');
+    Route::resource('/admin/bestellungen','OrderController');
     Route::resource('/admin/uuids','UidTableController');
 });

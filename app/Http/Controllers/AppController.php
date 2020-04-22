@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,5 +26,8 @@ class AppController extends Controller
     }
     public function anmeldungStore(Request $request){
         return $request;
+    }
+    public function fetchAllData(){
+       return order::all();
     }
 }

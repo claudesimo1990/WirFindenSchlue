@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UidTable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UidTableController extends Controller
 {
@@ -77,19 +78,31 @@ class UidTableController extends Controller
      * @param  \App\UidTable  $uidTable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UidTable $uidTable)
+    public function update(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'content' => 'required|max:255',
+        ]);
+
+        $item = UidTable::find($request->get('id'));
+
+        $item->content = $request->get('content');
+        $item->status = $request->get('status');
+
+        $item->save();
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UidTable  $uidTable
-     * @return \Illuminate\Http\Response
+     * @param \App\UidTable $uidTable
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(UidTable $uidTable)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->get('id');
+        UidTable::find($id)->delete();
     }
 }

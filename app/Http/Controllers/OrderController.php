@@ -16,7 +16,6 @@ class OrderController extends Controller
     {
         return view('admin.orders');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -75,11 +74,13 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->get('id');
+        Order::find($id)->delete();
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Support\Str;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -25,8 +27,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        '', 'remember_token',
     ];
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = $value ?: str::random(10);
+    }
 
     /**
      * The attributes that should be cast to native types.

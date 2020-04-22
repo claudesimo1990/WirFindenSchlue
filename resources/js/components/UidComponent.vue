@@ -2,39 +2,49 @@
     <div class="container mt-4">
         <div class="row mb-5">
             <div class="col-md-4">
+                <div v-show="error.status" class="col-md-8">
+                    <p class="alert alert-danger">
+                        {{error.text}}
+                    </p>
+                </div>
+                <div v-show="success.status" class="col-md-8">
+                    <p class="alert alert-success">
+                        {{success.text}}
+                    </p>
+                </div>
                 <p>
-                    <input type="text" v-model="inhalt" class="form-control" placeholder="Content">
+                    <input type="text" v-model="inhalt" class="form-control" placeholder="Neue UID Erfassen">
                 </p>
-                <input @click="save()" type="button" class="form-control btn btn-success" value="speichern">
-            </div>
-            <div v-show="error.status" class="col-md-8">
-                <p class="alert alert-danger">
-                    {{error.text}}
+                <p v-show="update_btn">
+                    <input type="text" v-model="status" class="form-control" placeholder="Status">
+                    <span class="badge badge-success mb-4 mt-1 mr-4">0 bedeutet Frei</span>
+                    <span class="badge badge-danger mb-4 mt-4 ml-3">1 bedeutet vergeben</span>
                 </p>
-            </div>
-            <div v-show="success.status" class="col-md-8">
-                <p class="alert alert-success">
-                    {{success.text}}
-                </p>
+                <div v-show="speichern_btn" class="div">
+                    <input @click="save()" type="button" class="form-control btn btn-success" value="Speichern">
+                </div>
+                <div v-show="update_btn" class="div">
+                    <input @click="updatesave()" type="button" class="form-control btn btn-success" value="Update">
+                </div>
             </div>
         </div>
         <table>
             <tr>
-                <th class="text-center">N°</th>
+                <th class="text-center">Index</th>
                 <th class="text-center">Content</th>
                 <th class="text-center">Status</th>
                 <th class="text-center">actions</th>
             </tr>
-            <tr v-for="(i,index) in uids">
-                <td class="text-center">{{index + 1}}</td>
+            <tr v-for="(i,index) in uids" v-bind:key="i.id">
+                <td class="text-center">{{index +1 }}</td>
                 <td class="text-center">{{i.content}}</td>
                 <td class="text-center">{{i.status == 0 ? 'Frei': 'benutzt'}}</td>
                 <td class="action">
                     <span>
-                        <input class="btn btn-info" type="button" value="Update">
+                        <input @click="update(i.id,index)" class="btn btn-info" type="button" value="Update">
                     </span>
                     <span>
-                        <input class="btn btn-danger" type="button" value="löschen">
+                        <input @click="remove(i.id,index)" class="btn btn-danger" type="button" value="löschen">
                     </span>
                 </td>
             </tr>
@@ -50,6 +60,7 @@
             return {
                 nber: '',
                 inhalt: '',
+                status: null,
 
                 uids: this.datauids,
                 uid: {
@@ -60,12 +71,16 @@
                 },
                 error: {
                     status: false,
-                    text: 'Die eingegebene UIDS ist schon vergeben, geben Sien einen anderen ein, Bitte !'
+                    text: 'Geben Sie hier bitte neue zur Verfügung stehende UIDs SCHLÜ ein.'
                 },
                 success: {
                     status: false,
-                    text: 'Super die Daten sind richtig in der Datenbank gespeichert!'
-                }
+                    text: 'Super!'
+                },
+                speichern_btn: true,
+                update_btn: false,
+                el_id: null,
+                el_index: null,
 
             }
         }, methods: {
@@ -96,6 +111,45 @@
                 }
 
             },
+            update: function (id, index) {
+                this.el_id = id;
+                this.el_index = index;
+                this.speichern_btn = false;
+                this.update_btn = true;
+                this.inhalt = this.uids[index].content;
+                this.status = this.uids[index].status;
+            },
+            updatesave: function () {
+
+                axios.put('/admin/uuids/' + this.el_id, {
+                    'content': this.inhalt,
+                    'status': this.status,
+                    'id': this.el_id,
+                })
+                    .then(res => {
+                        this.uids[this.el_index].content = this.inhalt;
+                        this.uids[this.el_index].status = this.status;
+                        this.inhalt = '';
+                        this.status = '';
+                        this.update_btn = false;
+                        this.speichern_btn = true;
+                        this.error.status = false;
+                    }).catch(err => {
+                    this.error.status = true;
+                });
+            },
+            remove: function (id, index) {
+                if (confirm('willst du wirklich löschen')) {
+                    axios.delete('/admin/uuids/' + id, {params: {id: id}})
+                        .then(res => {
+                            if(res.status == 200){
+                                this.uids.splice(index, 1);
+                            }
+                        }).catch(err => {
+                        console.log('bitte laden sie die Seite neu')
+                    });
+                }
+            }
         },
     }
 </script>
