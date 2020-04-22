@@ -125,5 +125,7 @@ $(document).ready(function () {
 
 Vue.component('bestellungcomponent', require('./components/BestellComponent.vue').default);
 Vue.component('userscomponent', require('./components/UsersComponent.vue').default);
+Vue.component('uidscomponent', require('./components/UidComponent.vue').default);
+Vue.component('orderscomponent', require('./components/OrdersComponent.vue').default);
 
 const app = new Vue({el: '#app'});

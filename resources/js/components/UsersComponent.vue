@@ -2,39 +2,27 @@
     <div class="container mt-4">
         <table>
             <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
+                <th class="text-center">Id</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Verify?</th>
+                <th class="text-center">UIID</th>
+                <th class="text-center">Actions</th>
             </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-            </tr>
-            <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-            </tr>
-            <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
+            <tr v-for="i in 30">
+                <td class="text-center">{{i}}</td>
+                <td class="text-center">Maria Anders</td>
+                <td class="text-center">test@test.com</td>
+                <td class="text-center">ja</td>
+                <td class="text-center">123445675</td>
+                <td class="action">
+                    <span>
+                        <input class="btn btn-info" type="button" value="Update">
+                    </span>
+                    <span>
+                        <input class="btn btn-danger" type="button" value="löschen">
+                    </span>
+                </td>
             </tr>
         </table>
     </div>
@@ -46,6 +34,10 @@
 </script>
 
 <style scoped>
+    .action{
+        display: flex;
+        justify-content:space-around;
+    }
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;

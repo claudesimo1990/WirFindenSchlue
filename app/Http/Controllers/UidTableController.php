@@ -14,7 +14,8 @@ class UidTableController extends Controller
      */
     public function index()
     {
-        //
+        $uids = UidTable::all();
+        return view('admin.uids', compact('uids'));
     }
 
     /**
@@ -35,7 +36,16 @@ class UidTableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'content' => 'required|unique:uid_tables|max:255',
+        ]);
+
+        $id = new UidTable();
+        $id->content = $request->get('content');
+        $id->save();
+        return back();
+
+        //return $request;
     }
 
     /**

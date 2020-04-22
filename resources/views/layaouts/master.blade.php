@@ -31,7 +31,6 @@
 
 <div class="box-layout" id="app">
 
-
    @include('layaouts.includes.nav')
     <!-- Start Working  Section -->
 

@@ -12,8 +12,12 @@ Route::get('/anmeldung','AppController@anmeldung')->name('anmeldung');
 Route::post('/anmeldung','AppController@anmeldungStore');
 
 Auth::routes();
-Route::get('/admin', 'HomeController@index')->name('home');
+//Route::get('/admin', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/home','AdminController@home');
+    Route::get('/admin/home','AdminController@home')->name('home');
+    Route::get('/admin/users','AdminController@users')->name('admin.users');
+    Route::get('/admin/bestellungen','OrderController@index')->name('orders');
+    Route::get('/admin/uuids','UidTableController@home')->name('uids');
+    Route::resource('/admin/uuids','UidTableController');
 });
