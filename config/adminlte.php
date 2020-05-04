@@ -228,7 +228,7 @@ return [
                     'icon_color' => 'aqua',
                 ],
                 [
-                    'text' => 'UUID',
+                    'text' => 'UID',
                     'url'  => '/admin/uuids',
                     'icon_color' => 'red',
                 ],

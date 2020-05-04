@@ -34,7 +34,42 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'anrede' => 'required',
+            'vorname' => 'required',
+            'nachname' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'StraßeHausnummer' => 'required',
+            'Ort' => 'required',
+            'PLZ' => 'required',
+            'farbe' => 'required',
+        ]);
+        //store in Database
+
+        $order = new Order();
+        $order->anrede = $request->anrede;
+        $order->vorname = $request->vorname;
+        $order->nachname = $request->nachname;
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->StraßeHausnummer = $request->StraßeHausnummer;
+        $order->Ort = $request->Ort;
+        $order->PLZ = $request->PLZ;
+        $order->farbe = $request->farbe;
+
+        if ($request->paypal) {
+            $order->paypal = $request->paypal;
+        } else {
+            $order->bankname = $request->bankname;
+            $order->bic = $request->Bic;
+            $order->iban = $request->Iban;
+        }
+
+        $order->save();
+
+        return redirect('bestellung')->with(['success' => 'ihre Bestellung ist erfolgreich']);
+
     }
 
     /**

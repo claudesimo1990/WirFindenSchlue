@@ -24,11 +24,17 @@ class CreateOrdersTable extends Migration
             $table->string('Ort');
             $table->string('PLZ');
             $table->string('farbe');
-            $table->string('vorname_2');
-            $table->string('nachname_2');
-            $table->string('phone_2');
-            $table->string('anrede_2');
-            $table->string('email_2');
+
+            $table->string('Bankname')->nullable();
+            $table->string('bic')->nullable();
+            $table->string('iban')->nullable();
+            $table->boolean('paypal')->default(false)->nullable();
+
+            $table->string('vorname_2')->nullable();
+            $table->string('nachname_2')->nullable();
+            $table->string('phone_2')->nullable();
+            $table->string('anrede_2')->nullable();
+            $table->string('email_2')->nullable();
             $table->timestamps();
         });
     }

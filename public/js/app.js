@@ -2089,61 +2089,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2184,26 +2129,20 @@ __webpack_require__.r(__webpack_exports__);
       },
       step4: {
         'status': false,
-        'pate': false,
-        'newpate': false,
-        'vorname_2': null,
-        'nachname_2': null,
-        'phone_2': null,
-        'anrede_2': null,
-        'email': null
-      },
-      step5: {
-        'status': false,
         'Iban': null,
         'Bankname': null,
-        'Bic': null
+        'Bic': null,
+        paypal: false
       },
       error: {
         'status': false,
         'message': 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.',
         'email': 'Die eingegebene E-mail Adresse ist ungültig !.'
       },
-      signaturData: null
+      success_message: {
+        status: false,
+        message: 'Ihre Bestellung wurde erfolgreich, Sie kriegen eine Bestätigung per Mail und Die Loginsdaten um ihre Pate anzulegen.'
+      }
     };
   },
   methods: {
@@ -2212,7 +2151,7 @@ __webpack_require__.r(__webpack_exports__);
       return re.test(email);
     },
     steps1Validate: function steps1Validate() {
-      if (this.step1.vorname !== null || this.step1.nachname !== null || this.step1.email !== null || this.step1.phone !== null || this.step1.geburtsdatum !== null) {
+      if (this.step1.anrede !== null && this.step1.vorname !== null && this.step1.nachname !== null && this.step1.email !== null && this.step1.phone !== null) {
         if (!this.validEmail(this.step1.email)) {
           this.error.status = true;
         } else {
@@ -2225,7 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     steps2Validate: function steps2Validate() {
-      if (this.step2.StraßeHausnummer !== null || this.step2.Ort !== null || this.step2.PLZ !== null) {
+      if (this.step2.StraßeHausnummer !== null && this.step2.Ort !== null && this.step2.PLZ !== null) {
         this.error.status = false;
         this.step1.status = false;
         this.step2.status = false;
@@ -2235,7 +2174,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     steps3Validate: function steps3Validate() {
-      if (this.step3.Strom_zaelernummer !== null || this.step3.kundenummeraktStromAnbieter !== null || this.step3.kundenummeraktGasAnbieter !== null) {
+      if (this.step3.Strom_zaelernummer !== null) {
         this.error.status = false;
         this.step1.status = false;
         this.step2.status = false;
@@ -2257,34 +2196,49 @@ __webpack_require__.r(__webpack_exports__);
         this.error.status = true;
       }
     },
-    steps5Validate: function steps5Validate() {
-      if (this.step5.unterschrift === true) {
-        this.error = false;
-        this.step1.status = false;
-        this.step2.status = false;
-        this.step3.status = false;
-        this.step4.status = false;
-      } else {}
-    },
-    submit: function submit() {
-      axios.post('/bestellung', {
-        'step1': this.step1,
-        'step2': this.step2,
-        'step3': this.step3,
-        'step4': this.step4,
-        'step5': this.step5
-      }).then(function (response) {
-        console.log(response);
+    submitForm: function submitForm() {
+      var _this = this;
+
+      axios.post('/Bestellung/create', {
+        'anrede': this.step1.anrede,
+        'vorname': this.step1.vorname,
+        'nachname': this.step1.nachname,
+        'email': this.step1.email,
+        'phone': this.step1.phone,
+        'StraßeHausnummer': this.step2.StraßeHausnummer,
+        'Ort': this.step2.Ort,
+        'PLZ': this.step2.PLZ,
+        'farbe': this.step3.farbe,
+        'paypal': this.step4.paypal,
+        'bankname': this.step4.Bankname,
+        'Bic': this.step4.Bic,
+        'Iban': this.step4.Iban
+      }).then(function (_ref) {
+        var data = _ref.data;
+        console.log(data);
+        _this.step1.anrede = null;
+        _this.step1.vorname = null;
+        _this.step1.nachname = null;
+        _this.step1.email = null;
+        _this.step1.phone = null;
+        _this.step2.StraßeHausnummer = null;
+        _this.step2.Ort = null;
+        _this.step2.PLZ = null;
+        _this.step3.farbe = false;
+        _this.step4.paypal = null;
+        _this.step4.Bankname = null;
+        _this.step4.Bic = null;
+        _this.step4.Iban = null;
+        _this.success_message.status = true;
+        _this.step4.status = false;
+        _this.step1.status = true;
+        _this.step2.status = false;
+        _this.step3.status = false;
+        _this.step5.status = false;
       });
-    },
-    useGas: function useGas() {
-      this.step3.gas = !this.step3.gas;
     },
     newPate: function newPate() {
       this.step4.newpate = !this.step4.newpate;
-    },
-    datepicker: function datepicker() {
-      console.log('ca marche');
     }
   }
 });
@@ -2792,7 +2746,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.panel-heading[data-v-9c735bb2] {\n    display: flex;\n    justify-content: space-around;\n}\n.btn-default[data-v-9c735bb2] {\n    color: #1a202c !important;\n    border: 2px solid #1a202c !important;\n}\n.btn-default[data-v-9c735bb2]:before, .btn-default[data-v-9c735bb2]:after {\n    background-color: #1a202c !important;\n}\n.kleintext[data-v-9c735bb2] {\n    font-size: 16px;\n    color: #2b542c;\n    margin-left: 1px;\n}\n.has_error[data-v-9c735bb2] {\n    background-color: #da1717;\n    color: white !important;\n}\nform[data-v-9c735bb2] {\n    width: 100%;\n    float: left;\n    margin: 60px;\n    margin-bottom: 40px;\n    border-color: #1a202c;\n}\n.panel-primary[data-v-9c735bb2] {\n    border-color: #1a202c !important;\n}\n.stepwizard-step p[data-v-9c735bb2] {\n    margin-top: 0px;\n    color: #666;\n}\n.stepwizard-row[data-v-9c735bb2] {\n    display: table-row;\n}\n.stepwizard[data-v-9c735bb2] {\n    display: table;\n    width: 128%;\n    position: relative;\n    margin-bottom: 20px;\n}\n.btn-primary[data-v-9c735bb2] {\n    background-color: #1a202c !important;\n    border-color: #1a202c !important;\n    color: white !important;\n    border-radius: 5px !important;\n}\n.stepwizard-step button[disabled][data-v-9c735bb2] {\n    /*opacity: 1 !important;\n    filter: alpha(opacity=100) !important;*/\n}\n.stepwizard .btn.disabled[data-v-9c735bb2], .stepwizard .btn[disabled][data-v-9c735bb2], .stepwizard fieldset[disabled] .btn[data-v-9c735bb2] {\n    opacity: 1 !important;\n    color: #bbb;\n}\n.stepwizard-row[data-v-9c735bb2]:before {\n    top: 14px;\n    bottom: 0;\n    position: absolute;\n    content: \" \";\n    width: 100%;\n    height: 1px;\n    background-color: #ccc;\n    z-index: 0;\n}\n.stepwizard-step[data-v-9c735bb2] {\n    display: table-cell;\n    text-align: center;\n    position: relative;\n}\n", ""]);
+exports.push([module.i, "\n.panel-heading[data-v-9c735bb2] {\n    display: flex;\n    justify-content: space-around;\n}\n.btn-default[data-v-9c735bb2] {\n    color: #1a202c !important;\n    border: 2px solid #1a202c !important;\n}\n.btn-default[data-v-9c735bb2]:before, .btn-default[data-v-9c735bb2]:after {\n    background-color: #1a202c !important;\n}\n.kleintext[data-v-9c735bb2] {\n    font-size: 16px;\n    color: #2b542c;\n    margin-left: 1px;\n}\n.has_error[data-v-9c735bb2] {\n    background-color: #da1717;\n    color: white !important;\n}\n.success-message[data-v-9c735bb2]{\n    background-color: green;\n    color: white !important;\n    text-align: center;\n}\nform[data-v-9c735bb2] {\n    width: 100%;\n    float: left;\n    margin: 60px;\n    margin-bottom: 40px;\n    border-color: #1a202c;\n}\n.panel-primary[data-v-9c735bb2] {\n    border-color: #1a202c !important;\n}\n.stepwizard-step p[data-v-9c735bb2] {\n    margin-top: 0px;\n    color: #666;\n}\n.stepwizard-row[data-v-9c735bb2] {\n    display: table-row;\n}\n.stepwizard[data-v-9c735bb2] {\n    display: table;\n    width: 128%;\n    position: relative;\n    margin-bottom: 20px;\n}\n.btn-primary[data-v-9c735bb2] {\n    background-color: #1a202c !important;\n    border-color: #1a202c !important;\n    color: white !important;\n    border-radius: 5px !important;\n}\n.stepwizard-step button[disabled][data-v-9c735bb2] {\n    /*opacity: 1 !important;\n    filter: alpha(opacity=100) !important;*/\n}\n.stepwizard .btn.disabled[data-v-9c735bb2], .stepwizard .btn[disabled][data-v-9c735bb2], .stepwizard fieldset[disabled] .btn[data-v-9c735bb2] {\n    opacity: 1 !important;\n    color: #bbb;\n}\n.stepwizard-row[data-v-9c735bb2]:before {\n    top: 14px;\n    bottom: 0;\n    position: absolute;\n    content: \" \";\n    width: 100%;\n    height: 1px;\n    background-color: #ccc;\n    z-index: 0;\n}\n.stepwizard-step[data-v-9c735bb2] {\n    display: table-cell;\n    text-align: center;\n    position: relative;\n}\n.bank[data-v-9c735bb2]{\n    padding-left: 36px;\n    padding-top: 20px;\n}\n.submit-btn[data-v-9c735bb2]{\n    margin-top: 7.25rem;\n}\n", ""]);
 
 // exports
 
@@ -21253,11 +21207,11 @@ var render = function() {
                             translations: _vm.step2.translations
                           },
                           model: {
-                            value: _vm.step1.telefonnummer,
+                            value: _vm.step1.phone,
                             callback: function($$v) {
-                              _vm.$set(_vm.step1, "telefonnummer", $$v)
+                              _vm.$set(_vm.step1, "phone", $$v)
                             },
-                            expression: "step1.telefonnummer"
+                            expression: "step1.phone"
                           }
                         })
                       ],
@@ -21588,152 +21542,188 @@ var render = function() {
             [
               _vm._m(4),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6 float-left" }, [
-                  _c("small", { staticClass: "kleintext" }, [
-                    _vm._v("Mein Schlü Pate soll IFM stellvertretend sein")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.step4.pate_status,
-                        expression: "step4.pate_status"
-                      }
-                    ],
-                    staticClass: "morebutton",
-                    attrs: { type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.step4.pate_status)
-                        ? _vm._i(_vm.step4.pate_status, null) > -1
-                        : _vm.step4.pate_status
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.step4.pate_status,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              _vm.$set(
-                                _vm.step4,
-                                "pate_status",
-                                $$a.concat([$$v])
-                              )
-                          } else {
-                            $$i > -1 &&
-                              _vm.$set(
-                                _vm.step4,
-                                "pate_status",
-                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                              )
-                          }
-                        } else {
-                          _vm.$set(_vm.step4, "pate_status", $$c)
+              _c("div", { staticClass: "panel-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6 option text-center" }, [
+                    _c("span", [_vm._v("Bank")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.step4.paypal,
+                          expression: "step4.paypal"
+                        }
+                      ],
+                      attrs: { type: "radio", name: "bank" },
+                      domProps: {
+                        value: false,
+                        checked: _vm._q(_vm.step4.paypal, false)
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.$set(_vm.step4, "paypal", false)
                         }
                       }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("small", { staticClass: "kleintext" }, [
-                    _vm._v("Soll der Pate für meinen Schlü sein")
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    staticClass: "morebutton",
-                    attrs: { type: "checkbox" },
-                    on: {
-                      click: function($event) {
-                        return _vm.newPate()
+                  _c("div", { staticClass: "col-md-6 option text-center" }, [
+                    _c("span", [_vm._v("Paypal")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.step4.paypal,
+                          expression: "step4.paypal"
+                        }
+                      ],
+                      attrs: { type: "radio", name: "paypal" },
+                      domProps: {
+                        value: true,
+                        checked: _vm._q(_vm.step4.paypal, true)
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.$set(_vm.step4, "paypal", true)
+                        }
                       }
-                    }
-                  }),
+                    })
+                  ]),
                   _vm._v(" "),
-                  _vm.step4.newpate
-                    ? _c("div", { staticClass: "mt-6" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c(
-                              "div",
-                              { staticClass: "form-group" },
-                              [
-                                _c("label", { staticClass: "control-label" }, [
-                                  _vm._v("Anrede")
-                                ]),
-                                _vm._v(" "),
-                                _c("v-select", {
-                                  attrs: { options: _vm.step1.options },
-                                  model: {
-                                    value: _vm.step1.anrede,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.step1, "anrede", $$v)
-                                    },
-                                    expression: "step1.anrede"
-                                  }
-                                })
+                  !_vm.step4.paypal
+                    ? _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6 bank" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { staticClass: "control-label" }, [
+                              _vm._v("Bankname")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.step4.Bankname,
+                                  expression: "step4.Bankname"
+                                }
                               ],
-                              1
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(5),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _vm._m(6),
+                              staticClass: "form-control",
+                              attrs: {
+                                maxlength: "200",
+                                placeholder: "Bankname",
+                                type: "text"
+                              },
+                              domProps: { value: _vm.step4.Bankname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.step4,
+                                    "Bankname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c(
-                              "div",
-                              { staticClass: "form-group" },
-                              [
-                                _c("label", { staticClass: "control-label" }, [
-                                  _vm._v("Telefon*")
-                                ]),
-                                _vm._v(" "),
-                                _c("VuePhoneNumberInput", {
-                                  attrs: {
-                                    "preferred-countries": ["DE", "FR", "BE"],
-                                    translations: _vm.step2.translations
-                                  },
-                                  model: {
-                                    value: _vm.step1.telefonnummer,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.step1, "telefonnummer", $$v)
-                                    },
-                                    expression: "step1.telefonnummer"
-                                  }
-                                })
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { staticClass: "control-label" }, [
+                              _vm._v("IBAN")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.step4.Iban,
+                                  expression: "step4.Iban"
+                                }
                               ],
-                              1
-                            )
+                              staticClass: "form-control",
+                              attrs: {
+                                maxlength: "200",
+                                placeholder: "IBAN",
+                                type: "text"
+                              },
+                              domProps: { value: _vm.step4.Iban },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.step4,
+                                    "Iban",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { staticClass: "control-label" }, [
+                              _vm._v("BIC")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.step4.Bic,
+                                  expression: "step4.Bic"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                maxlength: "200",
+                                placeholder: "BIC",
+                                type: "text"
+                              },
+                              domProps: { value: _vm.step4.Bic },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.step4,
+                                    "Bic",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
                           ])
                         ])
                       ])
                     : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary nextBtn pull-right",
+                    staticClass:
+                      "btn btn-primary nextBtn pull-right submit-btn",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
-                        return _vm.steps4Validate()
+                        return _vm.submitForm()
                       }
                     }
                   },
-                  [_vm._v("Weiter\n                ")]
+                  [_vm._v("\n                    Abschicken\n                ")]
                 )
               ])
             ]
@@ -21741,139 +21731,19 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _vm.step5.status
-      ? _c(
-          "div",
-          {
-            staticClass: "panel panel-primary setup-content",
-            attrs: { id: "step-5" }
-          },
-          [
-            _vm._m(7),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { staticClass: "control-label" }, [
-                      _vm._v("Bankname")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.step4.Bankname,
-                          expression: "step4.Bankname"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        maxlength: "200",
-                        placeholder: "Bankname",
-                        type: "text"
-                      },
-                      domProps: { value: _vm.step4.Bankname },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.step4, "Bankname", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { staticClass: "control-label" }, [
-                      _vm._v("IBAN")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.step4.Iban,
-                          expression: "step4.Iban"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        maxlength: "200",
-                        placeholder: "IBAN",
-                        type: "text"
-                      },
-                      domProps: { value: _vm.step4.Iban },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.step4, "Iban", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { staticClass: "control-label" }, [
-                      _vm._v("BIC")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.step4.Bic,
-                          expression: "step4.Bic"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        maxlength: "200",
-                        placeholder: "BIC",
-                        type: "text"
-                      },
-                      domProps: { value: _vm.step4.Bic },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.step4, "Bic", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary nextBtn pull-right",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.steps4Validate()
-                    }
-                  }
-                },
-                [_vm._v("\n                Abschicken\n            ")]
-              )
-            ])
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
     _vm.error.status
       ? _c("div", { staticClass: "form-group has_error" }, [
           _c("p", { staticClass: "has_error" }, [
             _vm._v(_vm._s(_vm.error.message)),
+            _c("i", { staticClass: "fas fa-exclamation-circle" })
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.success_message.status
+      ? _c("div", { staticClass: "form-group bg-success" }, [
+          _c("p", { staticClass: "success-message" }, [
+            _vm._v(_vm._s(_vm.success_message.message)),
             _c("i", { staticClass: "fas fa-exclamation-circle" })
           ])
         ])
@@ -21940,20 +21810,7 @@ var staticRenderFns = [
             [_vm._v("4")]
           ),
           _vm._v(" "),
-          _c("p", [_c("small", [_vm._v(" Daten zum Paten")])])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "stepwizard-step col-xs-2" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-default btn-circle",
-              attrs: { disabled: "disabled", href: "#step-5", type: "button" }
-            },
-            [_vm._v("5")]
-          ),
-          _vm._v(" "),
-          _c("p", [_c("small", [_vm._v("Bezahlung")])])
+          _c("p", [_c("small", [_vm._v("Wie Wollen Sie gerne bezahlen ?")])])
         ])
       ])
     ])
@@ -21987,64 +21844,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Daten zum Paten")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [_vm._v("Vorname")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { maxlength: "200", placeholder: "Vorname", type: "text" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [_vm._v("Nachname")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { maxlength: "200", placeholder: "Nachname", type: "text" }
-          })
-        ])
+      _c("h3", { staticClass: "panel-title" }, [
+        _vm._v("Wie Wollen Sie gerne bezahlen ?")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { staticClass: "control-label" }, [
-          _vm._v("E-Mailadresse*")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            maxlength: "200",
-            placeholder: "E-Mailadresse",
-            type: "text"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Bankdaten")])
     ])
   }
 ]

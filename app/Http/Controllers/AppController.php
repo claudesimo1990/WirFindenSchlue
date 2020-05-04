@@ -19,7 +19,8 @@ class AppController extends Controller
         return view('bestellung');
     }
     public function bestellungStore(Request $request){
-        return $request;
+       dd($request);
+        //return $request;
     }
     public function anmeldung(){
         return view('anmeldung');

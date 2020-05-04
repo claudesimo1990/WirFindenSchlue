@@ -30,8 +30,7 @@
                         </div>
                         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class=""><a href="#" class="active" >HOME <span></span></a></li>
-                                <li class=""><a href="#" class="" >ÜBER UNS<span></span></a></li>
+                                <li class=""><a href="{{route('homepage')}}" class="active" >HOME <span></span></a></li>
                                 <li class=""><a href="{{route('bestellung')}}" class="" >BESTELLUNG <span></span></a></li>
                                 <li class=""><a href="{{route('kontakte')}}" class="" >KONTAKT <span></span></a></li>
                                 <li class=""><a href="{{route('anmeldung')}}" class="" >Login<span></span></a></li>

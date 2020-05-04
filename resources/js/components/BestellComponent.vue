@@ -18,11 +18,7 @@
                 </div>
                 <div class="stepwizard-step col-xs-2">
                     <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
-                    <p><small> Daten zum Paten</small></p>
-                </div>
-                <div class="stepwizard-step col-xs-2">
-                    <a class="btn btn-default btn-circle" disabled="disabled" href="#step-5" type="button">5</a>
-                    <p><small>Bezahlung</small></p>
+                    <p><small>Wie Wollen Sie gerne bezahlen ?</small></p>
                 </div>
             </div>
         </div>
@@ -43,7 +39,7 @@
                             <div class="form-group">
                                 <label class="control-label">Telefonnummer</label>
                                 <VuePhoneNumberInput :preferred-countries="['DE' ,'FR', 'BE']"
-                                                     :translations="step2.translations" v-model="step1.telefonnummer"/>
+                                                     :translations="step2.translations" v-model="step1.phone"/>
                             </div>
                         </div>
                     </div>
@@ -125,102 +121,51 @@
             </div>
             <div class="panel panel-primary setup-content" id="step-4" v-if="step4.status">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Daten zum Paten</h3>
+                    <h3 class="panel-title">Wie Wollen Sie gerne bezahlen ?</h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 float-left">
-                        <small class="kleintext">Mein Schlü Pate soll IFM stellvertretend sein</small>
-                        <input v-model="step4.pate_status" class="morebutton" type="checkbox">
-                    </div>
-                    <div class="col-md-6">
-                        <small class="kleintext">Soll der Pate für meinen Schlü sein</small>
-                        <input @click="newPate()" class="morebutton" type="checkbox">
-                        <div v-if="step4.newpate" class="mt-6">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Anrede</label>
-                                        <v-select v-model="step1.anrede" :options="step1.options"></v-select>
-                                    </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 option text-center">
+                            <span>Bank</span>
+                            <input type="radio" name="bank" :value="false" v-model="step4.paypal">
+                        </div>
+                        <div class="col-md-6 option text-center">
+                            <span>Paypal</span>
+                            <input type="radio" name="paypal" :value="true" v-model="step4.paypal">
+                        </div>
+                        <div v-if="!step4.paypal" class="row">
+                            <div class="col-md-6 bank">
+                                <div class="form-group">
+                                    <label class="control-label">Bankname</label>
+                                    <input class="form-control" maxlength="200" placeholder="Bankname" type="text"
+                                           v-model="step4.Bankname"/>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Vorname</label>
-                                        <input class="form-control" maxlength="200"
-                                               placeholder="Vorname"
-                                               type="text"/>
-                                    </div>
-
+                                <div class="form-group">
+                                    <label class="control-label">IBAN</label>
+                                    <input class="form-control" maxlength="200" placeholder="IBAN" type="text"
+                                           v-model="step4.Iban"/>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Nachname</label>
-                                        <input class="form-control" maxlength="200"
-                                               placeholder="Nachname"
-                                               type="text"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">E-Mailadresse*</label>
-                                        <input class="form-control" maxlength="200"
-                                               placeholder="E-Mailadresse"
-                                               type="text"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Telefon*</label>
-                                        <VuePhoneNumberInput :preferred-countries="['DE' ,'FR', 'BE']"
-                                                             :translations="step2.translations"
-                                                             v-model="step1.telefonnummer"/>
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">BIC</label>
+                                    <input class="form-control" maxlength="200" placeholder="BIC" type="text"
+                                           v-model="step4.Bic"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <button @click="steps4Validate()" class="btn btn-primary nextBtn pull-right" type="button">Weiter
+                    <div class="row"></div>
+                    <button @click="submitForm()" class="btn btn-primary nextBtn pull-right submit-btn" type="button">
+                        Abschicken
                     </button>
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary setup-content" id="step-5" v-if="step5.status">
-            <div class="panel-heading">
-                <h3 class="panel-title">Bankdaten</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Bankname</label>
-                            <input class="form-control" maxlength="200" placeholder="Bankname" type="text"
-                                   v-model="step4.Bankname"/>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">IBAN</label>
-                            <input class="form-control" maxlength="200" placeholder="IBAN" type="text"
-                                   v-model="step4.Iban"/>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">BIC</label>
-                            <input class="form-control" maxlength="200" placeholder="BIC" type="text"
-                                   v-model="step4.Bic"/>
-                        </div>
-                    </div>
-                </div>
-                <button @click="steps4Validate()" class="btn btn-primary nextBtn pull-right" type="button">
-                    Abschicken
-                </button>
-            </div>
-        </div>
         <div class="form-group has_error" v-if="error.status">
             <p class="has_error">{{error.message}}<i
+                class="fas fa-exclamation-circle"></i></p>
+        </div>
+        <div class="form-group bg-success" v-if="success_message.status">
+            <p class="success-message">{{success_message.message}}<i
                 class="fas fa-exclamation-circle"></i></p>
         </div>
     </div>
@@ -274,14 +219,13 @@
                         'orange',
                     ],
                 },
-                step4: {'status': false, 'pate': false, 'newpate': false,'vorname_2':null,'nachname_2':null,'phone_2':null,'anrede_2':null,'email':null},
-                step5: {'status': false, 'Iban': null, 'Bankname': null, 'Bic': null},
+                step4: {'status': false, 'Iban': null, 'Bankname': null, 'Bic': null,paypal:false},
                 error: {
                     'status': false,
                     'message': 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.',
                     'email': 'Die eingegebene E-mail Adresse ist ungültig !.'
                 },
-                signaturData: null,
+                success_message: {status:false,message:'Ihre Bestellung wurde erfolgreich, Sie kriegen eine Bestätigung per Mail und Die Loginsdaten um ihre Pate anzulegen.'}
             }
         },
         methods: {
@@ -290,7 +234,7 @@
                 return re.test(email);
             },
             steps1Validate: function () {
-                if (this.step1.vorname !== null || this.step1.nachname !== null || this.step1.email !== null || this.step1.phone !== null || this.step1.geburtsdatum !== null) {
+                if (this.step1.anrede !== null && this.step1.vorname !== null && this.step1.nachname !== null && this.step1.email !== null && this.step1.phone !== null) {
                     if (!this.validEmail(this.step1.email)) {
                         this.error.status = true;
                     } else {
@@ -303,7 +247,7 @@
                 }
             },
             steps2Validate: function () {
-                if (this.step2.StraßeHausnummer !== null || this.step2.Ort !== null || this.step2.PLZ !== null) {
+                if (this.step2.StraßeHausnummer !== null && this.step2.Ort !== null && this.step2.PLZ !== null) {
 
                     this.error.status = false;
                     this.step1.status = false;
@@ -314,7 +258,8 @@
                 }
             },
             steps3Validate: function () {
-                if (this.step3.Strom_zaelernummer !== null || this.step3.kundenummeraktStromAnbieter !== null || this.step3.kundenummeraktGasAnbieter !== null) {
+                if (this.step3.Strom_zaelernummer !== null)
+                {
                     this.error.status = false;
                     this.step1.status = false;
                     this.step2.status = false;
@@ -337,38 +282,51 @@
                     this.error.status = true;
                 }
             },
-            steps5Validate: function () {
-                if (this.step5.unterschrift === true) {
-                    this.error = false;
-                    this.step1.status = false;
-                    this.step2.status = false;
-                    this.step3.status = false;
-                    this.step4.status = false;
-                } else {
-
-                }
-            },
-            submit: function () {
-                axios.post('/bestellung', {
-                    'step1': this.step1,
-                    'step2': this.step2,
-                    'step3': this.step3,
-                    'step4': this.step4,
-                    'step5': this.step5
+            submitForm: function () {
+                axios.post('/Bestellung/create', {
+                    'anrede':this.step1.anrede,
+                    'vorname': this.step1.vorname,
+                    'nachname':this.step1.nachname,
+                    'email':this.step1.email,
+                    'phone':this.step1.phone,
+                    'StraßeHausnummer':this.step2.StraßeHausnummer,
+                    'Ort':this.step2.Ort,
+                    'PLZ':this.step2.PLZ,
+                    'farbe': this.step3.farbe,
+                    'paypal': this.step4.paypal,
+                    'bankname':this.step4.Bankname,
+                    'Bic': this.step4.Bic,
+                    'Iban':this.step4.Iban
                 })
-                    .then((response) => {
-                        console.log(response);
+                    .then(({data}) => {
+                        console.log(data);
+                        this.step1.anrede = null;
+                        this.step1.vorname = null;
+                        this.step1.nachname = null;
+                        this.step1.email = null;
+                        this.step1.phone = null;
+                        this.step2.StraßeHausnummer = null;
+                        this.step2.Ort = null;
+                        this.step2.PLZ = null;
+                        this.step3.farbe = false;
+                        this.step4.paypal = null;
+                        this.step4.Bankname = null;
+                        this.step4.Bic = null;
+                       this.step4.Iban = null;
+
+                        this.success_message.status = true;
+
+                        this.step4.status = false;
+                        this.step1.status = true;
+                        this.step2.status = false;
+                        this.step3.status = false;
+                        this.step5.status = false;
+
                     })
-            },
-            useGas: function () {
-                this.step3.gas = !this.step3.gas;
             },
             newPate: function () {
                 this.step4.newpate = !this.step4.newpate;
             },
-            datepicker: function () {
-                console.log('ca marche');
-            }
         },
     }
 </script>
@@ -394,6 +352,11 @@
     .has_error {
         background-color: #da1717;
         color: white !important;
+    }
+    .success-message{
+        background-color: green;
+        color: white !important;
+        text-align: center;
     }
 
     form {
@@ -456,5 +419,12 @@
         display: table-cell;
         text-align: center;
         position: relative;
+    }
+    .bank{
+        padding-left: 36px;
+        padding-top: 20px;
+    }
+    .submit-btn{
+        margin-top: 7.25rem;
     }
 </style>
