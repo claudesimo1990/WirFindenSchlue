@@ -10,12 +10,12 @@
             src="https://player.vimeo.com/video/407899200?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;autopause=0"
             frameborder="0" class="w-full" allow="autoplay; encrypted-media" width="" height="800"></iframe>
     </section>
-    <section class="bg-volunteers-section mb-5">
+    <section class="bg-volunteers-section">
         <div class="container">
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-5">Über uns</h3>
+                        <h3 class="">Über uns</h3>
                     </div>
                     <div class="flex md:flex-row-reverse flex-wrap">
                         <div class="w-full md:w-2/4  p-4 text-center">
@@ -37,18 +37,14 @@
                 </div>
 
             </div>
-            <!-- .working-section -->
         </div>
-        <!-- .row -->
-        </div>
-        <!-- .container -->
     </section>
-    <section class="bg-working-section mb-5">
+    <section class="bg-working-section">
         <div class="container">
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-20">Schon einmal den Schlüssel verloren ? </h3>
+                        <h3 class="">Schon einmal den Schlüssel verloren ? </h3>
                         <div class="working-content">
                             <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
                             </p>
@@ -67,12 +63,12 @@
         </div>
         <!-- .container -->
     </section>
-    <section class="bg-volunteers-section mb-5">
+    <section class="bg-volunteers-section">
         <div class="container">
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-20">Schon einmal den Schlüssel verloren ? </h3>
+                        <h3 class="">Schon einmal den Schlüssel verloren ? </h3>
                         <div class="working-content">
                             <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
                             </p>
@@ -95,7 +91,7 @@
             <div class="row">
                 <div class="working-section">
                     <div class="section-header">
-                        <h3 class="mb-20">Der SCHLÜ</h3>
+                        <h3 class="">Der SCHLÜ</h3>
                         <div class="working-content">
                             <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
                             </p>

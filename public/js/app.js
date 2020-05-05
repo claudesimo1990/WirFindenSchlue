@@ -2695,6 +2695,87 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pateformComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-phone-number-input/dist/vue-phone-number-input.css":
 /*!*************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-phone-number-input/dist/vue-phone-number-input.css ***!
@@ -22534,6 +22615,205 @@ var staticRenderFns = [
           staticClass: "btn btn-danger",
           attrs: { type: "button", value: "löschen" }
         })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 ml-2" }, [
+      _c("h3", { staticClass: "contact-title mt-4 mb-4" }, [
+        _vm._v("neue Pate anlegen")
+      ]),
+      _vm._v(" "),
+      _c("form", { staticClass: "well form-horizontal" }, [
+        _c("fieldset", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("Vor- und Nachname")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-user" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "fullName",
+                    name: "fullName",
+                    placeholder: "Vor- und Nachname",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("Straßennummer")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-home" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "city",
+                    name: "city",
+                    placeholder: "Straßennummer",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("Stadt")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-home" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "state",
+                    name: "state",
+                    placeholder: "Stadt",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("PLZ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-home" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "postcode",
+                    name: "postcode",
+                    placeholder: "PLZ",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("Email Optional ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-envelope" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "email",
+                    name: "email",
+                    placeholder: "Email",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "col-md-4 control-label" }, [
+              _vm._v("Telefonnummer")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("span", { staticClass: "input-group-addon" }, [
+                  _c("i", { staticClass: "glyphicon glyphicon-earphone" })
+                ]),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "phoneNumber",
+                    name: "phoneNumber",
+                    placeholder: "Telefonnummer",
+                    required: "true",
+                    value: "",
+                    type: "text"
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group float-right mt-3 mb-3 mr-5 pr-5" },
+            [
+              _c("button", { staticClass: "btn btn-success" }, [
+                _vm._v("speichern")
+              ])
+            ]
+          )
+        ])
       ])
     ])
   }
@@ -48213,11 +48493,11 @@ $(document).ready(function () {
   $("input[data-role='datepicker']").each(function (i, o) {
     var jqueryElement = $(o);
     jqueryElement.allowMMDDYYYY(function () {
-      //THIS IS MY CALLBACK FUNCTION TO ALLOW VALIDATION ON OTHER ELEMENTS
       console.log("validating");
     });
   });
 });
+Vue.component('pateform', __webpack_require__(/*! ./components/pateformComponent.vue */ "./resources/js/components/pateformComponent.vue")["default"]);
 Vue.component('bestellungcomponent', __webpack_require__(/*! ./components/BestellComponent.vue */ "./resources/js/components/BestellComponent.vue")["default"]);
 Vue.component('userscomponent', __webpack_require__(/*! ./components/UsersComponent.vue */ "./resources/js/components/UsersComponent.vue")["default"]);
 Vue.component('uidscomponent', __webpack_require__(/*! ./components/UidComponent.vue */ "./resources/js/components/UidComponent.vue")["default"]);
@@ -48614,6 +48894,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UsersComponent_vue_vue_type_template_id_47d47080_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UsersComponent_vue_vue_type_template_id_47d47080_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pateformComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/pateformComponent.vue ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pateformComponent.vue?vue&type=template&id=330af97c& */ "./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c&");
+/* harmony import */ var _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pateformComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pateformComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/pateformComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./pateformComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./pateformComponent.vue?vue&type=template&id=330af97c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

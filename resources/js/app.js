@@ -117,12 +117,12 @@ $(document).ready(function () {
     $("input[data-role='datepicker']").each(function (i, o) {
         var jqueryElement = $(o);
         jqueryElement.allowMMDDYYYY(function () {
-            //THIS IS MY CALLBACK FUNCTION TO ALLOW VALIDATION ON OTHER ELEMENTS
             console.log("validating");
         });
     });
 });
 
+Vue.component('pateform', require('./components/pateformComponent.vue').default);
 Vue.component('bestellungcomponent', require('./components/BestellComponent.vue').default);
 Vue.component('userscomponent', require('./components/UsersComponent.vue').default);
 Vue.component('uidscomponent', require('./components/UidComponent.vue').default);

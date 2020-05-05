@@ -31,4 +31,7 @@ class AppController extends Controller
     public function fetchAllData(){
        return order::all();
     }
+    public function profile(){
+       return view('dasboard');
+    }
 }

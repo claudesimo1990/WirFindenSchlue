@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AppController@home')->name('homepage');
 Route::get('/kontakt','AppController@kontakt')->name('kontakte');
 
+Route::get('/profile','AppController@profile')->name('profile');
+
 Route::get('/bestellung','AppController@bestellung')->name('bestellung');
 Route::get('/allOrders','AppController@fetchAllData');
 

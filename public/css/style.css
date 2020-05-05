@@ -6182,5 +6182,16 @@ a{
     left: 6px;
     top: 12px;
 }
-
-
+.item-title{
+    font-weight:bold;
+    color: #0c1e2a;
+}
+.item{
+    float: right;
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #53a92c;
+    border-color: #53a92c;
+}
