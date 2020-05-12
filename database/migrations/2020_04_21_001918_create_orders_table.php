@@ -30,11 +30,14 @@ class CreateOrdersTable extends Migration
             $table->string('iban')->nullable();
             $table->boolean('paypal')->default(false)->nullable();
 
+            $table->string('anrede_2')->nullable();
             $table->string('vorname_2')->nullable();
             $table->string('nachname_2')->nullable();
             $table->string('phone_2')->nullable();
-            $table->string('anrede_2')->nullable();
             $table->string('email_2')->nullable();
+            $table->string('stadt_2')->nullable();
+            $table->string('strasse_2')->nullable();
+            $table->string('plz_2')->nullable();
             $table->timestamps();
         });
     }

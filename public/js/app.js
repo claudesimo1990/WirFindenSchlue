@@ -2213,9 +2213,7 @@ __webpack_require__.r(__webpack_exports__);
         'bankname': this.step4.Bankname,
         'Bic': this.step4.Bic,
         'Iban': this.step4.Iban
-      }).then(function (_ref) {
-        var data = _ref.data;
-        console.log(data);
+      }).then(function (data) {
         _this.step1.anrede = null;
         _this.step1.vorname = null;
         _this.step1.nachname = null;
@@ -2235,6 +2233,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.step2.status = false;
         _this.step3.status = false;
         _this.step5.status = false;
+        window.location(data.data);
       });
     },
     newPate: function newPate() {
@@ -2699,9 +2698,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pateformComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2773,6 +2774,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id'],
+  data: function data() {
+    return {
+      hasError: false,
+      message_success: false,
+      form: {
+        id: this.id,
+        anrede: '',
+        vorname: '',
+        nachname: '',
+        email: '',
+        phone: '',
+        stadt: '',
+        straße: '',
+        plz: ''
+      }
+    };
+  },
+  methods: {
+    formSubmit: function formSubmit() {
+      if (this.form.phone !== '' && this.form.email !== '' && this.form.plz !== "" && this.form.nachname !== '' && this.form.vorname !== '' && this.form.stadt !== '' && this.form.anrede !== '') {
+        axios.put('/Bestellung/create/' + this.id, this.form).then(function (response) {
+          window.location = response.data;
+        });
+      } else {
+        this.hasError = true;
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -22640,181 +22706,435 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-md-12 ml-2" }, [
+    _c("h3", { staticClass: "contact-title mt-4 mb-4" }, [
+      _vm._v("neue Pate anlegen")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "well form-horizontal" }, [
+      _c("fieldset", [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Anrede")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(0),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.anrede,
+                    expression: "form.anrede"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "fullName",
+                  name: "fullName",
+                  placeholder: "Anrede",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.anrede },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "anrede", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Vorname")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(1),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.vorname,
+                    expression: "form.vorname"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "fullName",
+                  name: "fullName",
+                  placeholder: "Vorname",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.vorname },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "vorname", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Nachname")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(2),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.nachname,
+                    expression: "form.nachname"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "fullName",
+                  name: "fullName",
+                  placeholder: "Nachname",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.nachname },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "nachname", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Straße und Hausnummer")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(3),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.straße,
+                    expression: "form.straße"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "city",
+                  name: "city",
+                  placeholder: "Straßennummer",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.straße },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "straße", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Stadt")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(4),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.stadt,
+                    expression: "form.stadt"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "state",
+                  name: "state",
+                  placeholder: "Stadt",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.stadt },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "stadt", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("PLZ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(5),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.plz,
+                    expression: "form.plz"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "postcode",
+                  name: "postcode",
+                  placeholder: "PLZ",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.plz },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "plz", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Email Optional ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(6),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.email,
+                    expression: "form.email"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "email",
+                  name: "email",
+                  placeholder: "Email",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "email", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { staticClass: "col-md-4 control-label" }, [
+            _vm._v("Telefonnummer")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
+            _c("div", { staticClass: "input-group" }, [
+              _vm._m(7),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.phone,
+                    expression: "form.phone"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  id: "phoneNumber",
+                  name: "phoneNumber",
+                  placeholder: "Telefonnummer",
+                  required: "true",
+                  value: "",
+                  type: "text"
+                },
+                domProps: { value: _vm.form.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "phone", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group float-right mt-3 mb-3 mr-5 pr-5" },
+          [
+            _c(
+              "button",
+              { staticClass: "btn btn-success", on: { click: _vm.formSubmit } },
+              [_vm._v("speichern")]
+            )
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.hasError
+      ? _c(
+          "div",
+          { staticClass: "form-group float-right mt-3 mb-3 mr-5 pr-5" },
+          [
+            _c("p", { staticClass: "bg-red-500 text-white text-center" }, [
+              _vm._v("Bitte füllen Sie alle Eingabefelder aus , um vorzuführen")
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.message_success
+      ? _c(
+          "div",
+          { staticClass: "form-group float-right mt-3 mb-3 mr-5 pr-5" },
+          [
+            _c("p", { staticClass: "bg-green-500 text-white text-center" }, [
+              _vm._v("Ihre Pate wurde succesful angelegt :)")
+            ])
+          ]
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 ml-2" }, [
-      _c("h3", { staticClass: "contact-title mt-4 mb-4" }, [
-        _vm._v("neue Pate anlegen")
-      ]),
-      _vm._v(" "),
-      _c("form", { staticClass: "well form-horizontal" }, [
-        _c("fieldset", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("Vor- und Nachname")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-user" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "fullName",
-                    name: "fullName",
-                    placeholder: "Vor- und Nachname",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("Straßennummer")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-home" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "city",
-                    name: "city",
-                    placeholder: "Straßennummer",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("Stadt")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-home" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "state",
-                    name: "state",
-                    placeholder: "Stadt",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("PLZ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-home" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "postcode",
-                    name: "postcode",
-                    placeholder: "PLZ",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("Email Optional ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-envelope" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "email",
-                    name: "email",
-                    placeholder: "Email",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "col-md-4 control-label" }, [
-              _vm._v("Telefonnummer")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 inputGroupContainer" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("span", { staticClass: "input-group-addon" }, [
-                  _c("i", { staticClass: "glyphicon glyphicon-earphone" })
-                ]),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "phoneNumber",
-                    name: "phoneNumber",
-                    placeholder: "Telefonnummer",
-                    required: "true",
-                    value: "",
-                    type: "text"
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group float-right mt-3 mb-3 mr-5 pr-5" },
-            [
-              _c("button", { staticClass: "btn btn-success" }, [
-                _vm._v("speichern")
-              ])
-            ]
-          )
-        ])
-      ])
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-user" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-user" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-user" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-envelope" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-earphone" })
     ])
   }
 ]
@@ -48346,7 +48666,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* WEBPACK VAR INJECTION */(function(global) {__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 $(document).ready(function () {
@@ -48505,6 +48825,8 @@ Vue.component('orderscomponent', __webpack_require__(/*! ./components/OrdersComp
 var app = new Vue({
   el: '#app'
 });
+global.vm = app;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -48903,15 +49225,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/pateformComponent.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pateformComponent_vue_vue_type_template_id_330af97c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pateformComponent.vue?vue&type=template&id=330af97c& */ "./resources/js/components/pateformComponent.vue?vue&type=template&id=330af97c&");
 /* harmony import */ var _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pateformComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -48941,15 +49262,13 @@ component.options.__file = "resources/js/components/pateformComponent.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/pateformComponent.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./pateformComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pateformComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_pateformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

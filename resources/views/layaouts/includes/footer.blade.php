@@ -35,8 +35,8 @@
         </div>
     </div>
     <ul class="social-icon-rounded contact-social-icon flex justify-around social-container mt-10">
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
     </ul>
 </footer>

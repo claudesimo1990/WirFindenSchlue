@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/rtl.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{'css/app.css'}}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{'/css/app.css'}}" media="all" />
 
 </head>
 

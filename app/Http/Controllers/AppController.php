@@ -28,10 +28,14 @@ class AppController extends Controller
     public function anmeldungStore(Request $request){
         return $request;
     }
+    public function update(Request $request){
+        dd($request);
+    }
     public function fetchAllData(){
        return order::all();
     }
-    public function profile(){
-       return view('dasboard');
+    public function profile($id){
+       $profile = Order::find($id);
+       return view('dasboard',compact('profile'));
     }
 }

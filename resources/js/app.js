@@ -129,3 +129,4 @@ Vue.component('uidscomponent', require('./components/UidComponent.vue').default)
 Vue.component('orderscomponent', require('./components/OrdersComponent.vue').default);
 
 const app = new Vue({el: '#app'});
+global.vm = app;

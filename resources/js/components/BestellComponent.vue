@@ -298,8 +298,7 @@
                     'Bic': this.step4.Bic,
                     'Iban':this.step4.Iban
                 })
-                    .then(({data}) => {
-                        console.log(data);
+                    .then((data) => {
                         this.step1.anrede = null;
                         this.step1.vorname = null;
                         this.step1.nachname = null;
@@ -315,13 +314,13 @@
                        this.step4.Iban = null;
 
                         this.success_message.status = true;
-
                         this.step4.status = false;
                         this.step1.status = true;
                         this.step2.status = false;
                         this.step3.status = false;
                         this.step5.status = false;
 
+                        window.location(data.data);
                     })
             },
             newPate: function () {

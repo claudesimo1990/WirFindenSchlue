@@ -68,7 +68,9 @@ class OrderController extends Controller
 
         $order->save();
 
-        return redirect('bestellung')->with(['success' => 'ihre Bestellung ist erfolgreich']);
+        $last = Order::all()->last()->id;
+
+        return route('profile',base64_encode($last));
 
     }
 
@@ -101,9 +103,22 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request)
     {
-        //
+        $order = Order::find($request->id);
+
+        $order->anrede_2 = $request->anrede;
+        $order->vorname_2 = $request->vorname;
+        $order->nachname_2 = $request->nachname;
+        $order->email_2 = $request->email;
+        $order->phone_2 = $request->phone;
+        $order->stadt_2 = $request->stadt;
+        $order->strasse_2 = $request->straße;
+        $order->plz_2 = $request->plz;
+
+        $order->save();
+
+        return url('/')."/profile/$request->id";
     }
 
     /**
