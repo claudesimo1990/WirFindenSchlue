@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class OrderController extends Controller
 {
@@ -58,6 +60,15 @@ class OrderController extends Controller
         $order->PLZ = $request->PLZ;
         $order->farbe = $request->farbe;
 
+        //create new user
+        $user = new User();
+        $user->name = $request->vorname;
+        $user->email = $request->email;
+        $user->UID = '';
+        $user->password = Hash::make('');
+        $user->save();
+
+
         if ($request->paypal) {
             $order->paypal = $request->paypal;
         } else {
@@ -66,11 +77,10 @@ class OrderController extends Controller
             $order->iban = $request->Iban;
         }
 
+        $order->id = $user->id;
         $order->save();
 
-        $last = Order::all()->last()->id;
-
-        return route('profile',base64_encode($last));
+        return url('/anmeldung');
 
     }
 

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email',
     ];
 
     /**
@@ -29,10 +29,6 @@ class User extends Authenticatable
     protected $hidden = [
         '', 'remember_token',
     ];
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = $value ?: str::random(10);
-    }
 
     /**
      * The attributes that should be cast to native types.

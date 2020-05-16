@@ -18,6 +18,16 @@ class UidTableController extends Controller
         $uids = UidTable::all();
         return view('admin.uids', compact('uids'));
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function geAllUids()
+    {
+        return  UidTable::all();
+
+    }
 
     /**
      * Show the form for creating a new resource.

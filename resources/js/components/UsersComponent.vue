@@ -16,17 +16,29 @@
                     <input type="text" v-model="username" class="form-control" placeholder="Name">
                 </p>
                 <p>
-                    <input type="text" v-model="email_addresse" class="form-control" placeholder="Email">
+                    <input type="text" v-model="email" class="form-control" placeholder="Email">
                 </p>
                 <p>
-                    <input type="text" v-model="new_uid" class="form-control" placeholder="UID">
+                    <input type="text" v-model="uid" class="form-control" placeholder="UID">
                 </p>
-                <div v-show="speichern_btn" class="div">
-                    <input @click="save()" type="button" class="form-control btn btn-success" value="Speichern">
+                <div class="div">
+                    <input @click="updatesave()" type="button" class="form-control btn btn-success" value="Speichern">
                 </div>
-                <div v-show="update_btn" class="div">
-                    <input @click="updatesave()" type="button" class="form-control btn btn-success" value="Update">
-                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h4 class="bg-info text-center">Verfügbare UIDS</h4>
+                <hr>
+                <table>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th class="text-center">UID</th>
+                    </tr>
+                    <tr v-for="(i,index) in getAllUids">
+                        <td v-if="i.status == 0" class="text-center">{{i.id}}</td>
+                        <td v-if="i.status == 0" class="text-center">{{i.content}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
         <table>
@@ -44,14 +56,11 @@
                 <td class="text-center">{{i.name}}</td>
                 <td class="text-center">{{i.email}}</td>
                 <td class="text-center">{{i.email_verified_at ? 'Ja schon' : 'noch nicht'}}</td>
-                <td class="text-center">{{i.uid ? i.uid : 'Keine'}}</td>
-                <td class="text-center">{{i.name === 'Martin' ? '': i.password}}</td>
+                <td class="text-center">{{i.UID ? i.UID : 'Keine'}}</td>
+                <td class="text-center">{{i.password.substring(0,8)}}</td>
                 <td class="action">
                     <span>
-                        <input class="btn btn-info" type="button" value="Update">
-                    </span>
-                    <span>
-                        <input class="btn btn-danger" type="button" value="löschen">
+                        <input @click="update(i.id,index)" class="btn btn-info" type="button" value="ADD UID">
                     </span>
                 </td>
             </tr>
@@ -61,13 +70,18 @@
 </template>
 
 <script>
+    import vuex from 'vuex';
+
+    vuex.mapGetters([
+        'getUidsFormGetters'
+    ]);
     export default {
         data: function () {
 
             return {
                 'username': '',
-                'email_addresse': '',
-                'new_uid': '',
+                'email': '',
+                'uid': '',
 
                 users: [],
 
@@ -85,83 +99,57 @@
                     status: false,
                     text: 'Super!'
                 },
-                speichern_btn: true,
-                update_btn: false,
+
                 el_id: null,
                 el_index: null,
 
             }
         },
         methods: {
-            save: function () {
-                if (this.username.trim().length !== 0 && this.email_addresse.trim().length !== 0) {
-                    this.user.name = this.username;
-                    this.user.email = this.email_addresse;
-                    this.user.UID = this.new_uid;
-                    this.user.verify = false;
-
-                    axios.post('/admin/users/store', this.user)
-                        .then(res => {
-                            this.users.push(this.user);
-                            this.error.status = false;
-                            this.success.status = true;
-                            //data entleren
-                            this.username = '';
-                            this.email_addresse = '';
-                            this.new_uid = '';
-                        }).catch(err => {
-                        this.error.status = true;
-                    });
-                }
-            },
             update: function (id, index) {
+                console.log(id, this.users[index]);
                 this.el_id = id;
                 this.el_index = index;
-                this.speichern_btn = false;
-                this.update_btn = true;
-                this.inhalt = this.uids[index].content;
-                this.status = this.uids[index].status;
+
+                this.username = this.users[index].name;
+                this.email = this.users[index].email;
             },
             updatesave: function () {
 
-                axios.put('/admin/uuids/' + this.el_id, {
-                    'content': this.inhalt,
-                    'status': this.status,
+                axios.put('/admin/users/update/' + this.el_id, {
+                    'name': this.username,
+                    'email': this.email,
                     'id': this.el_id,
+                    'UID': this.uid,
                 })
                     .then(res => {
-                        this.uids[this.el_index].content = this.inhalt;
-                        this.uids[this.el_index].status = this.status;
-                        this.inhalt = '';
-                        this.status = '';
-                        this.update_btn = false;
-                        this.speichern_btn = true;
+                        this.users[this.el_index].name = this.username;
+                        this.users[this.el_index].email = this.email;
+                        this.users[this.el_index].UID = this.uid;
+                        this.username = '';
+                        this.email = '';
+                        this.uid = '';
                         this.error.status = false;
                     }).catch(err => {
                     this.error.status = true;
                 });
-            },
-            remove: function (id, index) {
-                if (confirm('willst du wirklich löschen')) {
-                    axios.delete('/admin/uuids/' + id, {params: {id: id}})
-                        .then(res => {
-                            if (res.status == 200) {
-                                this.uids.splice(index, 1);
-                            }
-                        }).catch(err => {
-                        console.log('bitte laden sie die Seite neu')
-                    });
-                }
             }
         },
         mounted() {
+            this.$store.dispatch("allUidsFromDatabase");
+
             axios.get('/admin/allUsers')
                 .then(res => {
                     this.users = res.data;
                 }).catch(err => {
                 console.log(err)
             });
-        }
+        },
+        computed: {
+            getAllUids() { //final output from here
+                return this.$store.getters.getUidsFormGetters
+            }
+        },
     }
 
 </script>

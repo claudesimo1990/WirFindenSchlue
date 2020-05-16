@@ -20,20 +20,31 @@
                     <a class="show-res-logo" href="index.html"><img src="/images/home01/logonew.jpg" width="100px" alt="logo" class="object-cover h-48 w-100 pb-20"></a>
                     <nav class="navbar">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="{{route('homepage')}}"><img src="/images/home01/logonew.jpg" alt="logo" class="object-cover w-2/3 w-100 mb-3 pb-20 pl-10"></a>
+                            <a class="navbar-brand" href="{{route('homepage')}}"><img src="/images/home01/logonew.jpg"
+                                                                                      alt="logo"
+                                                                                      class="object-cover w-2/3 w-100 mb-3 pb-20 pl-10"></a>
                         </div>
                         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class=""><a href="{{route('homepage')}}" class="active" >HOME <span></span></a></li>
-                                <li class=""><a href="{{route('bestellung')}}" class="" >BESTELLUNG <span></span></a></li>
-                                <li class=""><a href="{{route('kontakte')}}" class="" >KONTAKT <span></span></a></li>
-                                <li class=""><a href="{{route('anmeldung')}}" class="" >Login<span></span></a></li>
+                                    <li class=""><a href="{{route('homepage')}}" class="active">HOME <span></span></a>
+                                    </li>
+                                    <li class=""><a href="{{route('bestellung')}}" class="">BESTELLUNG <span></span></a>
+                                    </li>
+                                    <li class=""><a href="{{route('kontakte')}}" class="">KONTAKT <span></span></a></li>
+                                @guest
+                                    <li class=""><a href="{{route('anmeldung')}}" class="">ANMELDEN<span></span></a></li>
+                                @endguest
+                                @auth
+                                    <li class=""><a href="{{route('profile',['id' => auth()->user()->id])}}" class="">PROFILE<span></span></a></li>
+                                    <li class=""><a href="{{route('logout')}}" class="">ABMELDEN<span></span></a></li>
+                                @endauth
                             </ul>
                         </div>
                     </nav>

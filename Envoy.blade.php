@@ -6,6 +6,7 @@ $home = "/var/www/html";
 
 @story('deploy')
 git
+db
 npm
 @endstory
 
@@ -13,6 +14,10 @@ npm
 cd {{$home}};
 git reset --hard;
 git pull;
+@endtask
+
+@task('db')
+cd {{$home}};
 @endtask
 
 @task('npm')

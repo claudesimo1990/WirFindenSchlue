@@ -19,9 +19,14 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+            if ($request->get('email') == 'admin@admin.com'){
+                return redirect('admin/login');
+            }
             return redirect(RouteServiceProvider::HOME);
         }
-
+        if ($request->get('email') == 1) {
+         return redirect('admin/home');
+        }
         return $next($request);
     }
 }

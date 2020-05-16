@@ -28,5 +28,21 @@ class AdminController extends Controller
 
         $user->save();
     }
+    public function update(Request $request){
+
+        $validatedData = $request->validate([
+            'UID' => 'required|max:255',
+        ]);
+
+        $item = User::find($request->get('id'));
+
+        $item->UID = $request->get('UID');
+        $item->email = $request->get('email');
+        $item->name = $request->get('name');
+
+        $item->password = Hash::make($request->get('UID'));
+
+        $item->save();
+    }
 
 }

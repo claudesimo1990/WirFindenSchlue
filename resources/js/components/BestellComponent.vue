@@ -168,6 +168,10 @@
             <p class="success-message">{{success_message.message}}<i
                 class="fas fa-exclamation-circle"></i></p>
         </div>
+        <div class="form-group has_error" v-if="emailExist.status">
+            <p class="has_error">{{emailExist.message}}<i
+                class="fas fa-exclamation-circle"></i></p>
+        </div>
     </div>
 </template>
 
@@ -225,7 +229,8 @@
                     'message': 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.',
                     'email': 'Die eingegebene E-mail Adresse ist ungültig !.'
                 },
-                success_message: {status:false,message:'Ihre Bestellung wurde erfolgreich, Sie kriegen eine Bestätigung per Mail und Die Loginsdaten um ihre Pate anzulegen.'}
+                success_message: {status:false,message:'Ihre Bestellung wurde erfolgreich, Sie kriegen eine Bestätigung per Mail und Die Loginsdaten um ihre Pate anzulegen.'},
+                emailExist:{status:false,message:'Die Daten, die Sie eingegeben haben befinden sich schon in unsere Datenbank, bitte prüfen Sie nochmals.'}
             }
         },
         methods: {
@@ -299,29 +304,10 @@
                     'Iban':this.step4.Iban
                 })
                     .then((data) => {
-                        this.step1.anrede = null;
-                        this.step1.vorname = null;
-                        this.step1.nachname = null;
-                        this.step1.email = null;
-                        this.step1.phone = null;
-                        this.step2.StraßeHausnummer = null;
-                        this.step2.Ort = null;
-                        this.step2.PLZ = null;
-                        this.step3.farbe = false;
-                        this.step4.paypal = null;
-                        this.step4.Bankname = null;
-                        this.step4.Bic = null;
-                       this.step4.Iban = null;
-
-                        this.success_message.status = true;
-                        this.step4.status = false;
-                        this.step1.status = true;
-                        this.step2.status = false;
-                        this.step3.status = false;
-                        this.step5.status = false;
-
-                        window.location(data.data);
-                    })
+                        window.location = data.data;
+                    }).catch((error) => {
+                    this.emailExist.status = true;
+                });
             },
             newPate: function () {
                 this.step4.newpate = !this.step4.newpate;

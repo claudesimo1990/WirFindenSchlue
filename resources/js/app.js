@@ -1,5 +1,14 @@
 require('./bootstrap');
 window.Vue = require('vue');
+//support vuex
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+import storeData from "./components/store/index";
+
+const store = new Vuex.Store(
+    storeData
+);
 
 $(document).ready(function () {
     Date.prototype.toShortDateString = function() {
@@ -128,5 +137,8 @@ Vue.component('userscomponent', require('./components/UsersComponent.vue').defau
 Vue.component('uidscomponent', require('./components/UidComponent.vue').default);
 Vue.component('orderscomponent', require('./components/OrdersComponent.vue').default);
 
-const app = new Vue({el: '#app'});
+const app = new Vue({
+    el: '#app',
+    store
+});
 global.vm = app;
