@@ -22,5 +22,6 @@ cd {{$home}};
 
 @task('npm')
 cd {{$home}};
+npm i --no-progress
 npm run prod;
 @endtask

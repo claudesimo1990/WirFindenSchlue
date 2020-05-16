@@ -6195,3 +6195,25 @@ a{
     background-color: #53a92c;
     border-color: #53a92c;
 }
+.mainBG {background: url('../images/home01/Slider1.jpg') no-repeat center center fixed; background-size: cover;}
+.section-header h2 {color: white;font-size: 40px;}
+.mainBG-txt.jumbotron h1 span {font-weight: 400;}
+.mainBG-txt.jumbotron h1 strong {font-weight: 700;}
+.jumbotron .jum-bg p {margin-bottom: 15px; margin-top: 15px; padding: 0 10px; font-size: 20px;}
+.btn-success{
+    font-size: 14px;
+    font-weight: 600;
+    background-color: green !important;
+    text-transform: uppercase;
+    border: 2px solid green;
+    padding: 9px 19px 7px 19px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+.jubottrom-bild.section-header p {
+    font-size: 23px;
+    font-weight: 600;
+    color: white;
+    line-height: 31px;
+}

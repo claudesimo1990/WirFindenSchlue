@@ -39,11 +39,11 @@
             </div>
         </div>
     </section>
-    <section class="bg-working-section">
+    <section class="bg-working-section mainBG">
         <div class="container">
             <div class="row">
                 <div class="working-section">
-                    <div class="section-header">
+                    <div class="section-header jubottrom-bild">
                         <h3 class="">Schon einmal den Schlüssel verloren ? </h3>
                         <div class="working-content">
                             <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto minima nostrum ratione velit voluptate. Autem cupiditate dolores ducimus, et exercitationem explicabo ipsa reiciendis sed? Delectus itaque nemo recusandae similique.</span>
