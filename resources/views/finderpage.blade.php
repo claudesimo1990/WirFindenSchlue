@@ -16,19 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/css/rtl.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="{{'/css/app.css'}}" media="all"/>
-    <style>
-        [wire\:loading] {
-            display: none;
-        }
-
-        [wire\:offline] {
-            display: none;
-        }
-
-        [wire\:dirty]:not(textarea):not(input):not(select) {
-            display: none;
-        }
-    </style>
+    @livewireStyles
 </head>
 <body class="bg-gray-100">
 <div class="container" id="app">
@@ -78,51 +66,6 @@
         </div>
     </div>
 </div>
-<script src="/livewire/livewire.js?id=2e357e509d45977b1c0d" data-turbolinks-eval="false"></script>
-<script data-turbolinks-eval="false">
-    window.livewire = new Livewire();
-    window.livewire_app_url = '';
-    window.livewire_token = '70cQ9Uh44ep29q6FOqzMuZQdFGwoTopvvgJKFz1c';
-
-    /* Make Alpine wait until Livewire is finished rendering to do its thing. */
-    window.deferLoadingAlpine = function (callback) {
-        window.addEventListener('livewire:load', function () {
-            callback();
-        });
-    };
-
-    document.addEventListener("DOMContentLoaded", function () {
-        window.livewire.start();
-    });
-
-    var firstTime = true;
-    document.addEventListener("turbolinks:load", function() {
-        /* We only want this handler to run AFTER the first load. */
-        if  (firstTime) {
-            firstTime = false;
-            return;
-        }
-
-        window.livewire.restart();
-    });
-
-    document.addEventListener("turbolinks:before-cache", function() {
-        document.querySelectorAll('[wire\\:id]').forEach(function(el) {
-            const component = el.__livewire;
-
-            const dataObject = {
-                data: component.data,
-                events: component.events,
-                children: component.children,
-                checksum: component.checksum,
-                name: component.name,
-                errorBag: component.errorBag,
-                redirectTo: component.redirectTo,
-            };
-
-            el.setAttribute('wire:initial-data', JSON.stringify(dataObject));
-        });
-    });
-</script>
+@livewireScripts
 </body>
 </html>
