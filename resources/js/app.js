@@ -131,7 +131,7 @@ $(document).ready(function () {
     });
 });
 
-Vue.component('pateform', require('./components/pateformComponent.vue').default);
+Vue.component('dashboard', require('./components/DashboardComponent.vue').default);
 Vue.component('bestellungcomponent', require('./components/BestellComponent.vue').default);
 Vue.component('userscomponent', require('./components/UsersComponent.vue').default);
 Vue.component('uidscomponent', require('./components/UidComponent.vue').default);

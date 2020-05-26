@@ -117,18 +117,29 @@ class OrderController extends Controller
     {
         $order = Order::find($request->id);
 
-        $order->anrede_2 = $request->anrede;
-        $order->vorname_2 = $request->vorname;
-        $order->nachname_2 = $request->nachname;
-        $order->email_2 = $request->email;
-        $order->phone_2 = $request->phone;
-        $order->stadt_2 = $request->stadt;
-        $order->strasse_2 = $request->straße;
-        $order->plz_2 = $request->plz;
+        if ($request->status == 'IFM') {
+            $order->anrede_2 = $order->anrede;
+            $order->vorname_2 = $order->vorname;
+            $order->nachname_2 = $order->nachname;
+            $order->email_2 = $order->email;
+            $order->phone_2 = $order->phone;
+            $order->stadt_2 = $order->Ort;
+            $order->strasse_2 = $order->StraßeHausnummer;
+            $order->plz_2 = $order->PLZ;
+        } else {
+            $order->anrede_2 = $request->anrede;
+            $order->vorname_2 = $request->vorname;
+            $order->nachname_2 = $request->nachname;
+            $order->email_2 = $request->email;
+            $order->phone_2 = $request->phone;
+            $order->stadt_2 = $request->Ort;
+            $order->strasse_2 = $request->StraßeHausnummer;
+            $order->plz_2 = $request->PLZ;
+        }
 
         $order->save();
 
-        return url('/')."/profile/$request->id";
+        return response()->json('success');
     }
 
     /**

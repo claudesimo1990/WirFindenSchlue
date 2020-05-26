@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,5 +38,9 @@ class AppController extends Controller
     public function profile($id){
        $profile = Order::find($id);
        return view('dasboard',compact('profile'));
+    }
+    public function finder($uid){
+        $pate = Order::find(User::where('UID',$uid)->first()->id);
+        return view('finderpage',compact('pate'));
     }
 }

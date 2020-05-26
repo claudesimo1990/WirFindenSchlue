@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AddUserCredentials;
+use App\Mail\SendCredentials;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -43,6 +46,10 @@ class AdminController extends Controller
         $item->password = Hash::make($request->get('UID'));
 
         $item->save();
+
+        //dd($item->email);
+
+        Mail::to($item->email)->send(new SendCredentials($item));
     }
 
 }

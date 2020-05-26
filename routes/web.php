@@ -10,6 +10,7 @@ Route::get('/profile/{id}','AppController@profile')->name('profile')->middleware
 Route::get('/bestellung','AppController@bestellung')->name('bestellung');
 
 Route::get('/allOrders','AppController@fetchAllData');
+Route::get('/finder/{uid}','AppController@finder');
 
 Route::resource('/Bestellung/create','OrderController');
 
