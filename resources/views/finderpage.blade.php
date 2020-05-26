@@ -19,7 +19,7 @@
     @livewireStyles
 </head>
 <body class="bg-gray-100">
-<div class="container" id="app">
+<div class="container">
     <div class="max-w-sm w-full lg:max-w-full  mt-20 ml-20">
         <h1 class="text-black font-black text-center text-uppercase text-2xl mb-10">Pate Informationen</h1>
         <div
