@@ -10,27 +10,28 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h3 class="contact-title">Hinterlassen Sie uns einen Nachrricht</h3>
-                            <form action="#" method="POST" class="contact-form">
+                            <form action="{{route('kontakt.post')}}" method="POST" class="contact-form">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="nameId" name="name" placeholder="Name und Vorname">
+                                            <input type="text" class="form-control" id="nameId" name="name" placeholder="Name und Vorname" required>
                                         </div>
                                         <!-- .form-group -->
                                     </div>
                                     <!-- .col-md-6 -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="emailId" name="email" placeholder="Email Adresse">
+                                            <input type="email" class="form-control" id="emailId" name="email" placeholder="Email Adresse" required>
                                         </div>
                                     </div>
                                     <!-- .col-md-6 -->
                                 </div>
                                 <!-- .row -->
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="subjectId" name="subject" placeholder="Object">
+                                    <input type="text" class="form-control" id="subjectId" name="subject" placeholder="Object" required>
                                 </div>
-                                <textarea class="form-control text-area" rows="3" placeholder="Nachrricht ..."></textarea>
+                                <textarea class="form-control text-area" name="content" rows="3" placeholder="Nachrricht ..."></textarea>
                                 <button type="submit" class="btn btn-default">senden</button>
                             </form>
                         </div>

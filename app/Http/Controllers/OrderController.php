@@ -80,7 +80,8 @@ class OrderController extends Controller
         $order->id = $user->id;
         $order->save();
 
-        return url('/anmeldung');
+        if($order->paypal){ return url('/paypal');}
+       return url('/anmeldung');
 
     }
 
@@ -109,13 +110,19 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Order $order
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request)
     {
         $order = Order::find($request->id);
+
+        if ($request->get('Firma_name') === 'IchFindeMeinem') {
+            $order->status = 0;
+            $order->save();
+            return ;
+        }
 
         if ($request->status == 'IFM') {
             $order->anrede_2 = $order->anrede;
@@ -123,9 +130,10 @@ class OrderController extends Controller
             $order->nachname_2 = $order->nachname;
             $order->email_2 = $order->email;
             $order->phone_2 = $order->phone;
-            $order->stadt_2 = $order->Ort;
-            $order->strasse_2 = $order->StraßeHausnummer;
-            $order->plz_2 = $order->PLZ;
+            $order->stadt_2 = "nicht";
+            $order->strasse_2 = "nicht";
+            $order->plz_2 = "nicht";
+            $order->status = 1;
         } else {
             $order->anrede_2 = $request->anrede;
             $order->vorname_2 = $request->vorname;
@@ -135,10 +143,10 @@ class OrderController extends Controller
             $order->stadt_2 = $request->Ort;
             $order->strasse_2 = $request->StraßeHausnummer;
             $order->plz_2 = $request->PLZ;
+            $order->status = 1;
         }
 
         $order->save();
-
         return response()->json('success');
     }
 
@@ -153,5 +161,6 @@ class OrderController extends Controller
     {
         $id = $request->get('id');
         Order::find($id)->delete();
+        User::find($id)->delete();
     }
 }

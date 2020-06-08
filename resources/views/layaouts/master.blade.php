@@ -73,6 +73,7 @@
 
 <script type="text/javascript" src="/js/custom.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
+@include('flashy::message')
 
 
 </body>

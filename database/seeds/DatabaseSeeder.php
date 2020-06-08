@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         //$this->call(UserSeeder::class);
         factory(App\User::class, 1)->create();
+        factory(App\Paypal::class, 1)->create();
     }
 }

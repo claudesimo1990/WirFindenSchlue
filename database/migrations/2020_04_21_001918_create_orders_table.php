@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('Ort');
             $table->string('PLZ');
             $table->string('farbe');
+            $table->boolean('status')->default(false);
             //$table->integer('user_id')->unsigned()->nullable();
 
             $table->string('Bankname')->nullable();

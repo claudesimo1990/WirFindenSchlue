@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\AddUserCredentials;
 use App\Mail\SendCredentials;
+use App\Message;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,6 +17,9 @@ class AdminController extends Controller
     }
     public function viewuser(){
         return view('admin.users');
+    }
+    public function getAllMessages(){
+        return view('admin.notification');
     }
 
     public function allusers(){
@@ -48,7 +52,6 @@ class AdminController extends Controller
         $item->save();
 
         //dd($item->email);
-
         Mail::to($item->email)->send(new SendCredentials($item));
     }
 

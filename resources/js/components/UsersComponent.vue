@@ -73,7 +73,7 @@
     import vuex from 'vuex';
 
     vuex.mapGetters([
-        'getUidsFormGetters'
+        'getmessagesFormGetters'
     ]);
     export default {
         data: function () {

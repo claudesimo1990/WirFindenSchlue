@@ -24,45 +24,52 @@
         <h1 class="text-black font-black text-center text-uppercase text-2xl mb-10">Pate Informationen</h1>
         <div
             class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-            <div class="mb-8">
-                <div class="flex mb-4">
-                    <div class="w-1/2 bg-gray-100 h-12 px-3 py-3">
-                        <span class="text-bold text-green-100">Anrede :</span><span class="ml-4 text-black">{{$pate->anrede_2}}</span>
+            @if($pate->status == 1)
+                <div class="mb-8">
+                    <div class="mb-4">
+                        <div class="bg-gray-100 h-12 px-3 py-3">
+                            <span class="text-bold text-green-100">Anrede :</span><span
+                                class="ml-4 text-black">{{$pate->anrede_2}}</span>
+                        </div>
+                        <div class="bg-gray-300 h-12 px-3 py-3 text-green-100">
+                            <span class="text-bold text-green-100">Email :</span><span
+                                class="ml-4 text-black">{{$pate->email_2}}</span>
+                        </div>
                     </div>
-                    <div class="w-1/2 bg-gray-300 h-12 px-3 py-3 text-green-100">
-                        <span class="text-bold text-green-100">Email :</span><span
-                            class="ml-4 text-black">simo@simo.com</span>
-                    </div>
-                </div>
-                <div class="flex mb-4">
-                    <div class="w-1/2 bg-gray-100 h-12 px-3 py-3">
-                        <span class="text-bold text-green-100">Vorname :</span><span class="ml-4 text-black">{{$pate->vorname_2}}</span>
-                    </div>
-                    <div class="w-1/2 bg-gray-300 h-12 px-3 py-3 text-green-100">
-                        <span class="text-bold text-green-100">Nachname :</span><span
-                            class="ml-4 text-black">{{$pate->nachname_2}}</span>
-                    </div>
-                </div>
-                <div class="flex mb-4">
-                    <div class="w-1/2 bg-gray-100 h-12 px-3 py-3">
-                        <span class="text-bold text-green-100">Email :</span><span class="ml-4 text-black">{{$pate->email_2}}</span>
-                    </div>
-                    <div class="w-1/2 bg-gray-300 h-12 px-3 py-3 text-green-100">
-                        <span class="text-bold text-green-100">Telefon :</span><span
-                            class="ml-4 text-black">{{$pate->phone_2}}</span>
+                    <div class="mb-4">
+                        <div class="bg-gray-100 h-12 px-3 py-3">
+                            <span class="text-bold text-green-100">Vorname und Nachname :</span><span
+                                class="ml-4 text-black">{{$pate->vorname_2 . ' ' }} {{$pate->nachname_2}}</span>
+                        </div>
+                        <div class="bg-gray-300 h-12 px-3 py-3 text-green-100">
+                            <span class="text-bold text-green-100">Telefon :</span><span
+                                class="ml-4 text-black">{{$pate->phone_2}}</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex mb-4">
-                    <div class="w-1/2 bg-gray-100 h-12 px-3 py-3">
-                        <span class="text-bold text-green-100">Straße :</span><span class="ml-4 text-black">{{$pate->strasse_2}}</span>
+                @livewire('finder-component')
+            @else
+                <div class="mb-8">
+                    <div class="mb-4">
+                        <div class="bg-gray-300 h-12 px-3 py-3 text-green-100">
+                            <span class="text-bold text-green-100">Bankname :</span><span
+                                class="ml-4 text-black">IchFindeMeinem</span>
+                        </div>
                     </div>
-                    <div class="w-1/2 bg-gray-300 h-12 px-3 py-3 text-green-100">
-                        <span class="text-bold text-green-100">Stadt :</span><span
-                            class="ml-4 text-black">{{$pate->plz_2}} {{$pate->stadt_2}}</span>
+                    <div class="mb-4">
+                        <div class="bg-gray-100 h-12 px-3 py-3">
+                            <span class="text-bold text-green-100">Email :</span><span
+                                class="ml-4 text-black">kontakt@ichfindemeinen.de</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="bg-gray-300 h-12 px-3 py-3 text-green-100">
+                                <span class="text-bold text-green-100">Telefon :</span><span
+                                    class="ml-4 text-black">+49 30 62933447</span>
+                            </div>
+                        </div>
                     </div>
+                    @endif
                 </div>
-            </div>
-            @livewire('finder-component')
         </div>
     </div>
 </div>

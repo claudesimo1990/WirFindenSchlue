@@ -232,6 +232,16 @@ return [
                     'url'  => '/admin/uuids',
                     'icon_color' => 'red',
                 ],
+                [
+                    'text' => 'Paypal',
+                    'url'  => '/admin/paypal',
+                    'icon_color' => 'gelb',
+                ],
+                [
+                    'text' => 'Notifications',
+                    'url'  => '/admin/notifications',
+                    'icon_color' => 'red',
+                ],
             ],
         ],
     ],

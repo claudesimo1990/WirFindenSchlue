@@ -1,0 +1,80 @@
+[05-06-2020 23:01:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[05-06-2020 23:01:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:01:47] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:02:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:02:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:02:12] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:02:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:02:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:02:56] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:04:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:04:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:04:01] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:04:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:04:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:04:07] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:08:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:08:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:08:44] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:10:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:10:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:10:35] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:10:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:10:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:10:42] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:13:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:13:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:13:12] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:13:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:13:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:13:20] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:13:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:13:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:13:25] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[05-06-2020 23:26:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[05-06-2020 23:26:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[05-06-2020 23:26:06] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[06-06-2020 08:05:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:05:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[06-06-2020 08:05:21] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[06-06-2020 08:07:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:07:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[06-06-2020 08:07:01] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[06-06-2020 08:09:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:09:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[06-06-2020 08:09:19] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[06-06-2020 08:28:30] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:28:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 08:28:31] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 08:28:33] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 08:28:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:28:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 08:28:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 08:29:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 08:30:50] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:30:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 08:30:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 08:30:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 08:32:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:32:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 08:32:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 08:32:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 08:41:21] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 08:41:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 08:41:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 08:41:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 09:43:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 09:43:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 09:43:52] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 09:43:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[06-06-2020 10:07:17] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[06-06-2020 10:07:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[06-06-2020 10:07:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[06-06-2020 10:07:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[08-06-2020 04:49:02] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[08-06-2020 04:49:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[08-06-2020 04:49:03] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[08-06-2020 05:08:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[08-06-2020 05:08:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[08-06-2020 05:08:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[08-06-2020 05:08:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201

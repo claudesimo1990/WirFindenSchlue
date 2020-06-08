@@ -19,6 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::apiResources(
     [
-        'IDS' => 'API\UidsController'
+        'ids' => 'API\UidsController'
+    ]
+);
+Route::apiResources(
+    [
+        'messages' => 'MessagesController'
     ]
 );
