@@ -20,10 +20,10 @@
                     <span class="badge badge-success mb-4 mt-1 mr-4">0 bedeutet Frei</span>
                     <span class="badge badge-danger mb-4 mt-4 ml-3">1 bedeutet vergeben</span>
                 </p>
-                <div v-show="speichern_btn" class="div">
+                <div v-show="speichern_btn" class="div mt-4">
                     <input @click="save()" type="button" class="form-control btn btn-success" value="Speichern">
                 </div>
-                <div v-show="update_btn" class="div">
+                <div v-show="update_btn" class="div mt-4">
                     <input @click="updatesave()" type="button" class="form-control btn btn-success" value="Update">
                 </div>
             </div>
@@ -143,7 +143,7 @@
                     axios.delete('/admin/uuids/' + id, {params: {id: id}})
                         .then(res => {
                             if(res.status == 200){
-                                this.uids.splice(index, 1);
+                                Vue.delete(this.uids, index)
                             }
                         }).catch(err => {
                         console.log('bitte laden sie die Seite neu')

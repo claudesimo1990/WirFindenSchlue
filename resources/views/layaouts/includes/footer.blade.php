@@ -34,9 +34,9 @@
             </div>
         </div>
     </div>
-    <ul class="social-icon-rounded contact-social-icon flex justify-around social-container mt-10">
-        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+    <ul class="social-icon-rounded flex justify-around mt-10">
+        <li><a href="https://www.facebook.com/IchFindeMeinen/" target="_blank"><img src="{{ asset('images/home01/facebook.svg') }}" alt=""></a></li>
+        <li><a href="https://www.instagram.com/ifm.schlue/" target="_blank"><img src="{{ asset('images/home01/instagram.svg') }}" alt=""></a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PL9l7rNzdj-lff1YSvlJkPvdyaWc0dm04Q" target="_blank"><img src="{{ asset('images/home01/youtube.svg') }}" alt=""></a></li>
     </ul>
 </footer>

@@ -1,9 +1,4 @@
-@extends('admin.layaout')
-
-@section('content_header')
-    <h1>Neue UID Erfassen</h1>
-    <p>Geben Sie hier bitte neue zur Verfügung stehende UIDs SCHLÜ ein.</p>
-@stop
+@extends('vendor.multiauth.layouts.app')
 
 @section('content')
 

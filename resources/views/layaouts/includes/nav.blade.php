@@ -6,7 +6,7 @@
                     <ul class="h-contact">
                         <li><i class="flaticon-time-left"></i>Erreichbarkeit: Montag - Freitag 8:00 bis 20:00 Uhr</li>
                         <li><i class="flaticon-vibrating-phone"></i>Tel:+49 30  62933447</li>
-                        <li><i class="flaticon-placeholder"></i>Thomasstraße 55 12053 Berlin
+                        <li class="mr-10"><i class="flaticon-placeholder"></i>12053 Berlin
                         </li>
                     </ul>
                 </div>

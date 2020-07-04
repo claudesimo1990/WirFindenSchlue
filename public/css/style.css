@@ -762,12 +762,14 @@ blockquote:after,
 	padding-right: 0;
 }
 
-.section-header{
-	max-width: 750px;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-	padding: 110px 0 56px 0;
+.section-header {
+    max-width: 750px;
+    width: 100%;
+    margin: 0 0;
+	margin-bottom: 55px;
+	margin-top: 15px;
+    text-align: center;
+    padding: 0px 0 0px 0;
 }
 .section-header h3{
 	font-size: 36px;
@@ -2153,10 +2155,10 @@ section{
 }
 .author-name h4{
 	font-size: 16px;
-	color: #fff;
+	color: black;
 }
 .author-name h6{
-	color: #fafafa;
+	color: black;
 	padding-top: 2px;
 }
 
@@ -6216,4 +6218,33 @@ a{
     font-weight: 600;
     color: white;
     line-height: 31px;
+}
+.notiferror {
+    background-color: red !important;
+    border: red;
+    text-align: center !important;
+    padding-left: 20px;
+    margin-bottom: 10px !important;
+    height: 60px;
+    padding-top: 16px;
+    color:white;
+}
+.notifsuccess {
+background-color: green !important;
+border: green;
+text-align: center !important;
+padding-left: 20px;
+margin-bottom: 10px !important;
+height: 60px;
+padding-top: 16px;
+color: white;
+}
+.login-show, .register-show {
+    z-index: 99;
+    display: block;
+    opacity: 4;
+    transition: 0.3s ease-in-out;
+    color: #242424;
+    text-align: left;
+    padding: 50px;
 }

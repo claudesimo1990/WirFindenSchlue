@@ -15,7 +15,7 @@
                 <p>
                     <input type="text" v-model="amount" class="form-control" placeholder="Neue Paypal Amount">
                 </p>
-                <div class="div">
+                <div class="div mt-4">
                     <input @click="save()" type="button" class="form-control btn btn-success" value="Speichern">
                 </div>
             </div>

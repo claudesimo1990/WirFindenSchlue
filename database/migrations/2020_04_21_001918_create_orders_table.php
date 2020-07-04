@@ -25,7 +25,6 @@ class CreateOrdersTable extends Migration
             $table->string('PLZ');
             $table->string('farbe');
             $table->boolean('status')->default(false);
-            //$table->integer('user_id')->unsigned()->nullable();
 
             $table->string('Bankname')->nullable();
             $table->string('bic')->nullable();
@@ -40,6 +39,7 @@ class CreateOrdersTable extends Migration
             $table->string('stadt_2')->nullable();
             $table->string('strasse_2')->nullable();
             $table->string('plz_2')->nullable();
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

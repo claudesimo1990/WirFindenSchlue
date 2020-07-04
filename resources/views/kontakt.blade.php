@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section class="bg-volunteers-section mb-56 pl-10 pr-10 mt-5 pt-40">
+    <section class="bg-volunteers-section pl-10 pr-10 mt-5 pt-40">
         <div class="container">
             <div class="row">
                 <div class="contact-us">

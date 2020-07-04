@@ -52,7 +52,7 @@
                 <div class="mb-8">
                     <div class="mb-4">
                         <div class="bg-gray-300 h-12 px-3 py-3 text-green-100">
-                            <span class="text-bold text-green-100">Bankname :</span><span
+                            <span class="text-bold text-green-100">Patenname :</span><span
                                 class="ml-4 text-black">IchFindeMeinem</span>
                         </div>
                     </div>

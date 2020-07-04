@@ -16,12 +16,14 @@
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
-                                    <h3>Willkommen</h3>
-                                    <h2>auf Wir Finden deine SchlÜ</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi cupiditate doloremque doloribus eius. </p>
+                                    <h2>Willkommen auf IFM SCHLÜ</h3>
+                                    <h3>Das Netzwerk zum Schlüssel Wiederfinden.</h2>
+                                    <p>Rund 4000 Schlüssel pro Jahr (in Berlin) finden den Weg in ein Fundbüro.
+                                        Nur 15 Prozent finden den Weg zurück zum Eigentümer.
+                                        Mit dem SCHLÜ - Anhänger ändert sich das nun.</p>
                                     <div class="slider-btn">
-                                        <a href="#" class="btn btn-default">Anmelden</a>
-                                        <a href="donate.html" class="btn btn-default">Bestellen</a>
+                                        <a href="{{ route('anmeldung') }}" class="btn btn-default">Anmelden</a>
+                                        <a href="{{ route('bestellung') }}" class="btn btn-default">Bestellen</a>
                                     </div>
                                     <!-- .slider-btn -->
                                 </div>
@@ -39,11 +41,12 @@
                         <div class="slider-content-area">
                             <div class="container">
                                 <div class="slider-content">
-                                    <h3>Sei ein Teil des Netzwerks von IFM</h3>
-                                    <h3>Auch in deiner Lieblingsfarbe erhältlich.</h3>
+                                    <h3>Sei ein Teil des Netzwerks von IFM
+                                        Erwerbe einen IFM SCHLÜ Anhänger.
+                                        Auch in deiner Lieblingsfarbe erhältlich.</h3>
                                     <div class="slider-btn">
-                                        <a href="{{asset('anmeldung')}}" class="btn btn-default">Anmelden</a>
-                                        <a href="{{asset('bestellung')}}" class="btn btn-default">Bestellen</a>
+                                        <a href="{{route('anmeldung')}}" class="btn btn-default">SCHLÜ LOGIN</a>
+                                        <a href="{{route('bestellung')}}" class="btn btn-default">Bestellen</a>
                                     </div>
                                     <!-- .slider-btn -->
                                 </div>

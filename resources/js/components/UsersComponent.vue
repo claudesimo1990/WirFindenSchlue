@@ -21,7 +21,7 @@
                 <p>
                     <input type="text" v-model="uid" class="form-control" placeholder="UID">
                 </p>
-                <div class="div">
+                <div class="div mt-4">
                     <input @click="updatesave()" type="button" class="form-control btn btn-success" value="Speichern">
                 </div>
             </div>

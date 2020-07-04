@@ -19,7 +19,6 @@
                     <th class="text-center">phone_2</th>
                     <th class="text-center">anrede_2</th>
                     <th class="text-center">email_2</th>
-                    <th class="text-center">created_at</th>
                     <th class="text-center">actions</th>
                 </tr>
                 </thead>
@@ -40,7 +39,6 @@
                     <td class="text-center">{{i.phone_2}}</td>
                     <td class="text-center">{{i.anrede_2}}</td>
                     <td class="text-center">{{i.email_2}}</td>
-                    <td class="text-center">{{i.created_at}}</td>
                     <td class="action">
                         <span><input @click="remove(i.id,index)" class="btn btn-danger" type="button" value="löschen">
                     </span>
@@ -67,10 +65,10 @@
                     axios.delete('/admin/bestellungen/' + id, {params: {id: id}})
                         .then(res => {
                             if (res.status == 200) {
-                                this.Orders.splice(index, 1);
+                                 Vue.delete(this.Orders, index)
                             }
                         }).catch(err => {
-                        console.log('bitte laden sie die Seite neu')
+                        vm.$forceUpdate();
                     });
                 }
             }

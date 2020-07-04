@@ -23,16 +23,16 @@ Route::get('/cancel','PaymentController@cancel')->name('cancel');
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/home','AdminController@home')->name('home');
-    Route::get('/admin/users','AdminController@viewuser');
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/home','AdminController@home')->name('admin.home');
+    Route::get('/admin/users','AdminController@viewuser')->name('admin.users');
     Route::get('/admin/allUsers','AdminController@allusers');
     Route::post('/admin/users/store','AdminController@store');
     Route::put('/admin/users/update/{id}','AdminController@update');
     Route::resource('/admin/bestellungen','OrderController');
     Route::resource('/admin/uuids','UidTableController');
-    Route::get('/admin/paypal','PaymentController@setpaypalamount');
-    Route::get('/admin/notifications','AdminController@getAllMessages');
+    Route::get('/admin/paypal','PaymentController@setpaypalamount')->name('admin.paypal');
+    Route::get('/admin/notifications','AdminController@getAllMessages')->name('notifications');
     Route::post('/admin/message/delete/{id}','MessagesController@destroy');
     Route::post('/admin/paypal','PaymentController@postpayment');
 });

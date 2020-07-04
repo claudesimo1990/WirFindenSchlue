@@ -50,8 +50,7 @@ class AppController extends Controller
     }
 
     public function bestellungStore(Request $request){
-       dd($request);
-        //return $request;
+       
     }
 
     public function update(Request $request){

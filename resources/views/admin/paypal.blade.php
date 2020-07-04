@@ -1,9 +1,4 @@
-@extends('admin.layaout')
-
-@section('content_header')
-    <h1>Paypal Wert</h1>
-    <p>Geben Sie den neuen Paypal Wert ein</p>
-@stop
+@extends('vendor.multiauth.layouts.app')
 
 @section('content')
 

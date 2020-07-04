@@ -1,24 +1,28 @@
 <template>
     <div class="container">
-        <div class="stepwizard">
-            <div class="stepwizard-row setup-panel">
-                <div class="stepwizard-step col-xs-2">
-                    <a class="btn btn-default btn-circle" href="#step-1" type="button">1</a>
-                    <p><small>Persönliche Daten</small></p>
-                </div>
-                <div class="stepwizard-step col-xs-2">
-                    <a class="btn btn-default btn-circle" href="#step-2" type="button">2</a>
-                    <p><small>Rechnungsadresse</small></p>
-                </div>
-                <div class="stepwizard-step col-xs-2">
-                    <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                    <p><small>
-                        Farbe des SCHLÜ
-                    </small></p>
-                </div>
-                <div class="stepwizard-step col-xs-2">
-                    <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
-                    <p><small>Wie Wollen Sie gerne bezahlen ?</small></p>
+        <notifications classes="notifsuccess" :duration="3000" width="600" position="bottom right" group="success" />
+        <notifications classes="notiferror" :duration="3000" width="600" position="bottom right" group="errors" />
+        <div class="container">
+            <div class="row form-group">
+                <div class="col-xs-12">
+                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                        <li @click.prevent="backToStep1()" class="pointer" :class="[step1.status == true ? 'active' :  '']"><a>
+                            <h4 class="list-group-item-heading">Schritt 1</h4>
+                            <p class="list-group-item-text">Persönliche Daten</p>
+                        </a></li>
+                        <li @click.prevent="backToStep2()" class="pointer" :class="[step2.status == true ? 'active' :  '']"><a>
+                            <h4 class="list-group-item-heading">Schritt 2</h4>
+                            <p class="list-group-item-text">Rechnungsadresse</p>
+                        </a></li>
+                        <li @click.prevent="backToStep3()" class="pointer" :class="[step3.status == true ? 'active' :  '']"><a>
+                            <h4 class="list-group-item-heading">Schritt 3</h4>
+                            <p class="list-group-item-text">Farbe des SCHLÜ</p>
+                        </a></li>
+                        <li @click.prevent="backToStep4()" class="pointer" :class="[step4.status == true ? 'active' :  '']"><a>
+                            <h4 class="list-group-item-heading">Schritt 4</h4>
+                            <p class="list-group-item-text">Wie Wollen Sie gerne bezahlen ?</p>
+                        </a></li>    
+                    </ul>
                 </div>
             </div>
         </div>
@@ -31,13 +35,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Anrede</label>
+                                <label class="control-label">Anrede*</label>
                                 <v-select v-model="step1.anrede" :options="step1.options"></v-select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Telefonnummer</label>
+                                <label class="control-label">Telefonnummer*</label>
                                 <VuePhoneNumberInput :preferred-countries="['DE' ,'FR', 'BE']"
                                                      :translations="step2.translations" v-model="step1.phone"/>
                             </div>
@@ -46,7 +50,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Vorname</label>
+                                <label class="control-label">Vorname*</label>
                                 <input class="form-control alert-error" maxlength="100" placeholder="Vorname"
                                        type="text"
                                        v-model="step1.vorname"/>
@@ -54,7 +58,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Nachname</label>
+                                <label class="control-label">Nachname*</label>
                                 <input class="form-control" maxlength="100" placeholder="Nachname" type="text"
                                        v-model="step1.nachname"/>
                             </div>
@@ -63,7 +67,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Email</label>
+                                <label class="control-label">Email*</label>
                                 <input class="form-control" maxlength="100" placeholder="Email Adresse" type="text"
                                        v-model="step1.email"/>
                             </div>
@@ -81,18 +85,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Straße Hausnummer </label>
+                                <label class="control-label">Straße Hausnummer* </label>
                                 <input class="form-control alert-error" maxlength="100" placeholder="Straße Hausnummer"
                                        type="text"
                                        v-model="step2.StraßeHausnummer"/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Ort</label>
+                                <label class="control-label">Ort*</label>
                                 <input class="form-control" maxlength="100" placeholder="Ort" type="text"
                                        v-model="step2.Ort"/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">PLZ</label>
+                                <label class="control-label">PLZ*</label>
                                 <input class="form-control" maxlength="100" placeholder="PLZ" type="text"
                                        v-model="step2.PLZ"/>
                             </div>
@@ -110,7 +114,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Farbe des SCHLÜ</label>
+                                <label class="control-label">Farbe des SCHLÜ*</label>
                                 <v-select v-model="step3.farbe" :options="step3.options"></v-select>
                             </div>
                         </div>
@@ -121,7 +125,7 @@
             </div>
             <div class="panel panel-primary setup-content" id="step-4" v-if="step4.status">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Wie Wollen Sie gerne bezahlen ?</h3>
+                    <h3 class="panel-title">Wie Wollen Sie gerne bezahlen* ?</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -136,17 +140,17 @@
                         <div v-if="!step4.paypal" class="row">
                             <div class="col-md-6 bank">
                                 <div class="form-group">
-                                    <label class="control-label">Bankname</label>
+                                    <label class="control-label">Bankname*</label>
                                     <input class="form-control" maxlength="200" placeholder="Bankname" type="text"
                                            v-model="step4.Bankname"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">IBAN</label>
+                                    <label class="control-label">IBAN*</label>
                                     <input class="form-control" maxlength="200" placeholder="IBAN" type="text"
                                            v-model="step4.Iban"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">BIC</label>
+                                    <label class="control-label">BIC*</label>
                                     <input class="form-control" maxlength="200" placeholder="BIC" type="text"
                                            v-model="step4.Bic"/>
                                 </div>
@@ -176,6 +180,8 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import Notifications from 'vue-notification'
     import VuePhoneNumberInput from 'vue-phone-number-input';
     import 'vue-phone-number-input/dist/vue-phone-number-input.css';
     import vSelect from "vue-select";
@@ -241,14 +247,22 @@
             steps1Validate: function () {
                 if (this.step1.anrede !== null && this.step1.vorname !== null && this.step1.nachname !== null && this.step1.email !== null && this.step1.phone !== null) {
                     if (!this.validEmail(this.step1.email)) {
-                        this.error.status = true;
+                        this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.'
+                        })
                     } else {
                         this.error.status = false;
                         this.step1.status = false;
                         this.step2.status = true;
                     }
                 } else {
-                    this.error.status = true;
+                    this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.'
+                        })
                 }
             },
             steps2Validate: function () {
@@ -259,7 +273,11 @@
                     this.step2.status = false;
                     this.step3.status = true;
                 } else {
-                    this.error.status = true;
+                    this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.'
+                        })
                 }
             },
             steps3Validate: function () {
@@ -271,7 +289,11 @@
                     this.step3.status = false;
                     this.step4.status = true;
                 } else {
-                    this.error.status = true;
+                    this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.'
+                        })
                 }
 
             },
@@ -284,7 +306,11 @@
                     this.step3.status = false;
                     this.step5.status = true;
                 } else {
-                    this.error.status = true;
+                    this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Bitte füllen Sie alle benötigten Eingabefelder aus, bevor Sie fortfahren.'
+                        })
                 }
             },
             submitForm: function () {
@@ -304,15 +330,48 @@
                     'Iban':this.step4.Iban
                 })
                     .then((data) => {
+                        this.$notify({
+                        group: 'success',
+                        title: '',
+                        text: 'Ihre Bestellung ist erfolgreich eingegangen'
+                        }),
                         window.location = data.data;
                     }).catch((error) => {
-                    this.emailExist.status = true;
-                });
-            },
+                        this.$notify({
+                        group: 'errors',
+                        title: '',
+                        text: 'Ein Fehler ist eingetroffen. bitte prüfen Sie noch Ihre Eingabe'
+                        })
+                  });
+                },
+                backToStep1: function(){
+                    this.step1.status = true;
+                    this.step2.status = false;
+                    this.step3.status = false;
+                    this.step4.status = false;
+                },
+                backToStep2: function(){
+                    this.step1.status = false;
+                    this.step2.status = true;
+                    this.step3.status = false;
+                    this.step4.status = false;
+                },
+                backToStep3: function(){
+                    this.step1.status = false;
+                    this.step2.status = false;
+                    this.step3.status = true;
+                    this.step4.status = false;
+                },
+                backToStep4: function(){
+                    this.step1.status = false;
+                    this.step2.status = false;
+                    this.step3.status = false;
+                    this.step4.status = true;
+                },
             newPate: function () {
                 this.step4.newpate = !this.step4.newpate;
             },
-        },
+        }
     }
 </script>
 <style scoped>
@@ -411,5 +470,15 @@
     }
     .submit-btn{
         margin-top: 7.25rem;
+    }
+    .active a  h4.list-group-item-heading {
+        color:white;
+    }
+
+   .active a p.list-group-item-text {
+    color: white;
+    }
+    .pointer{
+        cursor:pointer;
     }
 </style>

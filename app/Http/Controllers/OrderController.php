@@ -32,7 +32,7 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
     public function store(Request $request)
     {
@@ -49,6 +49,14 @@ class OrderController extends Controller
         ]);
         //store in Database
 
+        //create new user
+        $user = User::create([
+            'name' => $request->vorname,
+            'email' => $request->email,
+            'UID' => '',
+            'password' => Hash::make('')
+        ]);
+
         $order = new Order();
         $order->anrede = $request->anrede;
         $order->vorname = $request->vorname;
@@ -59,15 +67,8 @@ class OrderController extends Controller
         $order->Ort = $request->Ort;
         $order->PLZ = $request->PLZ;
         $order->farbe = $request->farbe;
-
-        //create new user
-        $user = new User();
-        $user->name = $request->vorname;
-        $user->email = $request->email;
-        $user->UID = '';
-        $user->password = Hash::make('');
-        $user->save();
-
+        $order->user_id = $user->id;
+        $order->save();
 
         if ($request->paypal) {
             $order->paypal = $request->paypal;
@@ -76,9 +77,6 @@ class OrderController extends Controller
             $order->bic = $request->Bic;
             $order->iban = $request->Iban;
         }
-
-        $order->id = $user->id;
-        $order->save();
 
         if($order->paypal){ return url('/paypal');}
        return url('/anmeldung');

@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <section class="bg-volunteers-section mb-56">
+    <section class="bg-volunteers-section">
         <div class="container">
             <div class="row">
                 <div class="working-section">
-                    <div class="section-header mb-20">
+                    <div class="section-header">
                         @if(session('errors'))
                             <div class="alert alert-danger">
                                 {{session('errors')->first('email') }}
@@ -34,7 +34,7 @@
                                         <form action="{{route('anmeldung')}}" method="post">
                                             @csrf
                                             <input type="text" placeholder="Email" required name="email" value="{{old('email')}}">
-                                            <input type="text" placeholder="Erhaltende uid von der Email" required name="password">
+                                            <input type="password" placeholder="Erhaltende uid von der Email" required name="password">
                                             <button type="submit" class="btn btn-success">login</button>
                                         </form>
                                     </div>

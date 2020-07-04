@@ -1,8 +1,11 @@
 require('./bootstrap');
 window.Vue = require('vue');
 import Vuex from 'vuex';
-
+import Notifications from 'vue-notification'
+ 
+Vue.use(Notifications)
 Vue.use(Vuex);
+
 import storeData from "./components/store/index";
 
 const store = new Vuex.Store(
@@ -137,6 +140,7 @@ Vue.component('bestellungcomponent', require('./components/BestellComponent.vue'
 Vue.component('userscomponent', require('./components/UsersComponent.vue').default);
 Vue.component('uidscomponent', require('./components/UidComponent.vue').default);
 Vue.component('orderscomponent', require('./components/OrdersComponent.vue').default);
+Vue.component('videocomponent', require('./components/VideoComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

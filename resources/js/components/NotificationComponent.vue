@@ -2,14 +2,14 @@
     <div id="w">
         <div id="content">
 
-            <div v-for="(item,index) in messages" class="notify successbox">
+            <div v-for="(item,index) in messages" class="notify successbox" :key="item.id">
                 <h4><em>{{item.name}}</em></h4>
                 <span class="alerticon"><span class="text-green-400">{{item.email}}</span> <span class="float-right">{{item.created_at}}</span></span>
                 <hr>
                 <h5 class="text-red-600">Subject : {{item.subject}}</h5>
                 {{item.content}}
                 <hr>
-                <button @click="messageDelete(item.id,index)" class="bg-red hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                <button @click="messageDelete(item.id,index)" class="btn btn-danger">
                     löschen
                 </button>
             </div>
