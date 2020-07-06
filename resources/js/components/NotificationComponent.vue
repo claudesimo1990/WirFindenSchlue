@@ -2,9 +2,9 @@
     <div id="w">
         <div id="content">
 
-            <div v-for="(item,index) in messages" class="notify successbox" :key="item.id">
-                <h4><em>{{item.name}}</em></h4>
-                <span class="alerticon"><span class="text-green-400">{{item.email}}</span> <span class="float-right">{{item.created_at}}</span></span>
+            <div v-for="(item,index) in messages" class="notify successbox bg-aqua" :key="item.id">
+                <h4 class="float-left">Name : <em>{{item.name}}</em></h4>
+                <span class="alerticon">Email : <span class="text-green-400">{{item.email}}</span> <span class="float-right">{{item.created_at}}</span></span>
                 <hr>
                 <h5 class="text-red-600">Subject : {{item.subject}}</h5>
                 {{item.content}}

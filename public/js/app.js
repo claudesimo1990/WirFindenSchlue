@@ -41310,40 +41310,48 @@ var render = function() {
       "div",
       { attrs: { id: "content" } },
       _vm._l(_vm.messages, function(item, index) {
-        return _c("div", { key: item.id, staticClass: "notify successbox" }, [
-          _c("h4", [_c("em", [_vm._v(_vm._s(item.name))])]),
-          _vm._v(" "),
-          _c("span", { staticClass: "alerticon" }, [
-            _c("span", { staticClass: "text-green-400" }, [
-              _vm._v(_vm._s(item.email))
+        return _c(
+          "div",
+          { key: item.id, staticClass: "notify successbox bg-aqua" },
+          [
+            _c("h4", { staticClass: "float-left" }, [
+              _vm._v("Name : "),
+              _c("em", [_vm._v(_vm._s(item.name))])
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "float-right" }, [
-              _vm._v(_vm._s(item.created_at))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("h5", { staticClass: "text-red-600" }, [
-            _vm._v("Subject : " + _vm._s(item.subject))
-          ]),
-          _vm._v("\n            " + _vm._s(item.content) + "\n            "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger",
-              on: {
-                click: function($event) {
-                  return _vm.messageDelete(item.id, index)
+            _c("span", { staticClass: "alerticon" }, [
+              _vm._v("Email : "),
+              _c("span", { staticClass: "text-green-400" }, [
+                _vm._v(_vm._s(item.email))
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "float-right" }, [
+                _vm._v(_vm._s(item.created_at))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h5", { staticClass: "text-red-600" }, [
+              _vm._v("Subject : " + _vm._s(item.subject))
+            ]),
+            _vm._v("\n            " + _vm._s(item.content) + "\n            "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.messageDelete(item.id, index)
+                  }
                 }
-              }
-            },
-            [_vm._v("\n                löschen\n            ")]
-          )
-        ])
+              },
+              [_vm._v("\n                löschen\n            ")]
+            )
+          ]
+        )
       }),
       0
     )
